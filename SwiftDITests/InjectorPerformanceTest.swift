@@ -1,5 +1,5 @@
 //
-//  SwiftDITests.swift
+//  InjectorPerformanceTest.swift
 //  SwiftDITests
 //
 //  Created by Андрей Чернопрудов on 07/04/2018.
@@ -7,9 +7,8 @@
 //
 
 import XCTest
-@testable import SwiftDI
 
-class SwiftDITests: XCTestCase {
+class InjectorPerformanceTest: XCTestCase {
     
     override func setUp() {
         super.setUp()

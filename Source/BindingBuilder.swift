@@ -6,7 +6,7 @@
 //  Copyright © 2018 Little Stars. All rights reserved.
 //
 
-public struct BindingBuilder<T> {
+open class BindingBuilder<T> {
     
     let injector: Injector
     let type: T.Type
@@ -19,17 +19,17 @@ public struct BindingBuilder<T> {
         self.type = type
     }
     
-    mutating func tag(_ tag: String) -> BindingBuilder {
+    open func tag(_ tag: String) -> BindingBuilder {
         self.tag = tag
         return self
     }
     
-    mutating func singleton(_ flag: Bool) -> BindingBuilder {
+    open func singleton(_ flag: Bool) -> BindingBuilder {
         self.singleton = flag
         return self
     }
     
-    func with(_ binding: @escaping (Injector) -> T) {
+    open func with(_ binding: @escaping (Injector) -> T) {
         injector.bind(builder: self, with: binding)
     }
 }

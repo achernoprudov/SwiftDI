@@ -14,6 +14,8 @@
 		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
 		5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3D2078CA7200760D6E /* InjectProvider.swift */; };
 		5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */; };
+		5578FE422078D3B200760D6E /* InjectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE412078D3B200760D6E /* InjectorTest.swift */; };
+		5578FE442078D41200760D6E /* InjectorPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		5578FE3B2078C8E200760D6E /* InjectorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKey.swift; sourceTree = "<group>"; };
 		5578FE3D2078CA7200760D6E /* InjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectProvider.swift; sourceTree = "<group>"; };
 		5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBuilder.swift; sourceTree = "<group>"; };
+		5578FE412078D3B200760D6E /* InjectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorTest.swift; sourceTree = "<group>"; };
+		5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorPerformanceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 			children = (
 				5578FE2B2078B00100760D6E /* SwiftDITests.swift */,
 				5578FE2D2078B00100760D6E /* Info.plist */,
+				5578FE412078D3B200760D6E /* InjectorTest.swift */,
+				5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */,
 			);
 			path = SwiftDITests;
 			sourceTree = "<group>";
@@ -237,6 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5578FE2C2078B00100760D6E /* SwiftDITests.swift in Sources */,
+				5578FE442078D41200760D6E /* InjectorPerformanceTest.swift in Sources */,
+				5578FE422078D3B200760D6E /* InjectorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

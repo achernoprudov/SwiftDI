@@ -10,6 +10,11 @@ import XCTest
 @testable import SwiftDI
 
 class InjectorTest: XCTestCase {
+
+    // simple test model
+    struct Foo {
+        let foo: String
+    }
     
     var injector: Injector!
     
@@ -18,7 +23,7 @@ class InjectorTest: XCTestCase {
         injector = Injector()
     }
     
-    func test_resolveByType() {
+    func test_resolve_byType() {
         let expected = "hello world"
         injector.bind(String.self)
             .with { _ in expected }
@@ -27,7 +32,7 @@ class InjectorTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
     
-    func test_resolveByTag() {
+    func test_resolve_byTag() {
         let stringTag = "tag"
         let expected = "hello world"
         injector.bind(String.self)
@@ -38,4 +43,26 @@ class InjectorTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
     
+    func test_resolve_singleton() {
+        injector.bind(Date.self)
+            .singleton(true)
+            .with { _ in Date() }
+        
+        let result1 = injector.resolve(Date.self)
+        let result2 = injector.resolve(Date.self)
+        
+        XCTAssertEqual(result1, result2)
+    }
+    
+    func test_resolve_inBind() {
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { _ in expected }
+
+        injector.bind(Foo.self)
+            .with { i in Foo(foo: i.resolve(String.self)) }
+        
+        let result = injector.resolve(Foo.self)
+        XCTAssertEqual(result.foo, expected)
+    }
 }

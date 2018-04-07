@@ -7,29 +7,44 @@
 //
 
 import XCTest
+@testable import SwiftDI
 
 class InjectorPerformanceTest: XCTestCase {
     
+    var injector: Injector!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        injector = Injector()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func test_singleInject() {
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { _ in expected }
         self.measure {
-            // Put the code you want to measure the time of here.
+            _ = injector.resolve(String.self)
         }
+    }
+    
+    func test_constantInOneInjector() {
+        let values = (0..<100).map { "value#\($0)" }
+        values.forEach { value in
+            injector.bind(String.self)
+                .tag(value)
+                .with { _ in value }
+        }
+        
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { _ in expected }
+        self.measure {
+            _ = injector.resolve(String.self)
+        }
+    }
+    
+    func test_innerScopes() {
+        //TODO
     }
     
 }

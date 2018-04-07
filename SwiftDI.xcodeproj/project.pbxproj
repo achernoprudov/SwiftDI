@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5578FE272078B00100760D6E /* SwiftDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5578FE1D2078B00100760D6E /* SwiftDI.framework */; };
-		5578FE2C2078B00100760D6E /* SwiftDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE2B2078B00100760D6E /* SwiftDITests.swift */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
 		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
@@ -33,7 +32,6 @@
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5578FE262078B00100760D6E /* SwiftDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5578FE2B2078B00100760D6E /* SwiftDITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDITests.swift; sourceTree = "<group>"; };
 		5578FE2D2078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5578FE382078B08900760D6E /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		5578FE3B2078C8E200760D6E /* InjectorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKey.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		5578FE2A2078B00100760D6E /* SwiftDITests */ = {
 			isa = PBXGroup;
 			children = (
-				5578FE2B2078B00100760D6E /* SwiftDITests.swift */,
 				5578FE2D2078B00100760D6E /* Info.plist */,
 				5578FE412078D3B200760D6E /* InjectorTest.swift */,
 				5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */,
@@ -242,7 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5578FE2C2078B00100760D6E /* SwiftDITests.swift in Sources */,
 				5578FE442078D41200760D6E /* InjectorPerformanceTest.swift in Sources */,
 				5578FE422078D3B200760D6E /* InjectorTest.swift in Sources */,
 			);

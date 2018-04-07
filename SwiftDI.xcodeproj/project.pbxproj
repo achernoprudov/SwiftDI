@@ -10,6 +10,10 @@
 		5578FE272078B00100760D6E /* SwiftDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5578FE1D2078B00100760D6E /* SwiftDI.framework */; };
 		5578FE2C2078B00100760D6E /* SwiftDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE2B2078B00100760D6E /* SwiftDITests.swift */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
+		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
+		5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3D2078CA7200760D6E /* InjectProvider.swift */; };
+		5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		5578FE262078B00100760D6E /* SwiftDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE2B2078B00100760D6E /* SwiftDITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDITests.swift; sourceTree = "<group>"; };
 		5578FE2D2078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5578FE382078B08900760D6E /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
+		5578FE3B2078C8E200760D6E /* InjectorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKey.swift; sourceTree = "<group>"; };
+		5578FE3D2078CA7200760D6E /* InjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectProvider.swift; sourceTree = "<group>"; };
+		5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,8 @@
 		5578FE132078B00100760D6E = {
 			isa = PBXGroup;
 			children = (
+				5578FE3A2078B11600760D6E /* Ex */,
+				5578FE372078B00B00760D6E /* Source */,
 				5578FE1F2078B00100760D6E /* SwiftDI */,
 				5578FE2A2078B00100760D6E /* SwiftDITests */,
 				5578FE1E2078B00100760D6E /* Products */,
@@ -84,6 +94,24 @@
 				5578FE2D2078B00100760D6E /* Info.plist */,
 			);
 			path = SwiftDITests;
+			sourceTree = "<group>";
+		};
+		5578FE372078B00B00760D6E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5578FE382078B08900760D6E /* Injector.swift */,
+				5578FE3B2078C8E200760D6E /* InjectorKey.swift */,
+				5578FE3D2078CA7200760D6E /* InjectProvider.swift */,
+				5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5578FE3A2078B11600760D6E /* Ex */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +176,7 @@
 				TargetAttributes = {
 					5578FE1C2078B00100760D6E = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					5578FE252078B00100760D6E = {
@@ -196,6 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5578FE392078B08900760D6E /* Injector.swift in Sources */,
+				5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */,
+				5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */,
+				5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +367,7 @@
 		5578FE322078B00100760D6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.littlestars.SwiftDI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +390,7 @@
 		5578FE332078B00100760D6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +412,7 @@
 		5578FE352078B00100760D6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CA742G9DWZ;
 				INFOPLIST_FILE = SwiftDITests/Info.plist;
@@ -390,6 +427,7 @@
 		5578FE362078B00100760D6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CA742G9DWZ;
 				INFOPLIST_FILE = SwiftDITests/Info.plist;

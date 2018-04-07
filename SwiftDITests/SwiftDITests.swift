@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SwiftDI
+//@testable import SwiftDI
 
 class SwiftDITests: XCTestCase {
     

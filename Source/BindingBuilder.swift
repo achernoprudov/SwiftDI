@@ -8,7 +8,7 @@
 
 open class BindingBuilder<T> {
     
-    let injector: Injector
+    private let injector: Injector
     let type: T.Type
     var tag: String = ""
     var singleton: Bool = false

@@ -43,6 +43,25 @@ class InjectorTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
     
+    func test_resolve_few_equalByType_differentByTag() {
+        let tagValue1 = "tag1"
+        let tagValue2 = "tag2"
+        let expected1 = "hello world"
+        let expected2 = "hello hell"
+        
+        injector.bind(String.self)
+            .tag(tagValue1)
+            .with { _ in expected1 }
+        injector.bind(String.self)
+            .tag(tagValue2)
+            .with { _ in expected2 }
+        
+        let result1 = injector.resolve(String.self, tag: tagValue1)
+        let result2 = injector.resolve(String.self, tag: tagValue2)
+        XCTAssertEqual(expected1, result1)
+        XCTAssertEqual(expected2, result2)
+    }
+    
     func test_resolve_singleton() {
         injector.bind(Date.self)
             .singleton(true)
@@ -52,6 +71,17 @@ class InjectorTest: XCTestCase {
         let result2 = injector.resolve(Date.self)
         
         XCTAssertEqual(result1, result2)
+    }
+    
+    func test_resolve_notSingleton() {
+        injector.bind(Date.self)
+            .singleton(false)
+            .with { _ in Date() }
+        
+        let result1 = injector.resolve(Date.self)
+        let result2 = injector.resolve(Date.self)
+        
+        XCTAssertNotEqual(result1, result2)
     }
     
     func test_resolve_inBind() {

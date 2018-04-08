@@ -7,10 +7,8 @@
 //
 
 class InjectProvider {
-    
     let singleton: Bool
     let binding: (Injector) -> Any
-    
     var instance: Any?
     
     init(singleton: Bool, binding: @escaping (Injector) -> Any) {
@@ -19,13 +17,13 @@ class InjectProvider {
     }
     
     func provide(by injector: Injector) -> Any {
-        if let saved = self.instance {
+        if let saved = instance {
             return saved
         }
-        let instance = binding(injector)
+        let resolved = binding(injector)
         if singleton {
-            self.instance = instance
+            instance = resolved
         }
-        return instance
+        return resolved
     }
 }

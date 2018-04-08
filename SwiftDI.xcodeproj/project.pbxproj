@@ -15,6 +15,7 @@
 		5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */; };
 		5578FE422078D3B200760D6E /* InjectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE412078D3B200760D6E /* InjectorTest.swift */; };
 		5578FE442078D41200760D6E /* InjectorPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */; };
+		5578FE462078E29300760D6E /* InjectorInheritanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBuilder.swift; sourceTree = "<group>"; };
 		5578FE412078D3B200760D6E /* InjectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorTest.swift; sourceTree = "<group>"; };
 		5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorPerformanceTest.swift; sourceTree = "<group>"; };
+		5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorInheritanceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				5578FE2D2078B00100760D6E /* Info.plist */,
 				5578FE412078D3B200760D6E /* InjectorTest.swift */,
+				5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */,
 				5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */,
 			);
 			path = SwiftDITests;
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5578FE462078E29300760D6E /* InjectorInheritanceTest.swift in Sources */,
 				5578FE442078D41200760D6E /* InjectorPerformanceTest.swift in Sources */,
 				5578FE422078D3B200760D6E /* InjectorTest.swift in Sources */,
 			);

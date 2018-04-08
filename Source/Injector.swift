@@ -47,6 +47,10 @@ open class Injector {
         return parent?.resolve(type, tag: tag)
     }
     
+    open func plus() -> Injector {
+        return Injector(parent: self)
+    }
+    
    // MARK: - Public
     
     func bind<T>(builder: BindingBuilder<T>, with binding: @escaping (Injector) -> T) {

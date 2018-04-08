@@ -43,8 +43,18 @@ class InjectorPerformanceTest: XCTestCase {
         }
     }
     
-    func test_innerScopes() {
-        //TODO
+    func test_hierarchy() {
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { _ in expected }
+        
+        let last = (0..<100).reduce(injector) { (inj, _) -> Injector in
+            return inj!.plus()
+        }
+        
+        self.measure {
+            _ = last!.resolve(String.self)
+        }
     }
     
 }

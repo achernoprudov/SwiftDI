@@ -16,6 +16,7 @@
 		5578FE422078D3B200760D6E /* InjectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE412078D3B200760D6E /* InjectorTest.swift */; };
 		5578FE442078D41200760D6E /* InjectorPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */; };
 		5578FE462078E29300760D6E /* InjectorInheritanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */; };
+		5578FE4A2079CE8900760D6E /* Injector+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE492079CE8900760D6E /* Injector+Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		5578FE412078D3B200760D6E /* InjectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorTest.swift; sourceTree = "<group>"; };
 		5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorPerformanceTest.swift; sourceTree = "<group>"; };
 		5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorInheritanceTest.swift; sourceTree = "<group>"; };
+		5578FE492079CE8900760D6E /* Injector+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Injector+Config.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				5578FE382078B08900760D6E /* Injector.swift */,
+				5578FE492079CE8900760D6E /* Injector+Config.swift */,
 				5578FE3B2078C8E200760D6E /* InjectorKey.swift */,
 				5578FE3D2078CA7200760D6E /* InjectProvider.swift */,
 				5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5578FE392078B08900760D6E /* Injector.swift in Sources */,
+				5578FE4A2079CE8900760D6E /* Injector+Config.swift in Sources */,
 				5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */,
 				5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */,
 				5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */,

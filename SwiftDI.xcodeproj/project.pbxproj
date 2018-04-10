@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5527A74E207D0C12007A4761 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5527A74C207D0C11007A4761 /* README.md */; };
+		5527A74F207D0C12007A4761 /* SwiftDI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5527A74D207D0C12007A4761 /* SwiftDI.podspec */; };
 		5578FE272078B00100760D6E /* SwiftDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5578FE1D2078B00100760D6E /* SwiftDI.framework */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5527A74C207D0C11007A4761 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5527A74D207D0C12007A4761 /* SwiftDI.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftDI.podspec; sourceTree = "<group>"; };
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,10 +68,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5523AD2F207D0BDB00AD4EF3 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				5527A74C207D0C11007A4761 /* README.md */,
+				5527A74D207D0C12007A4761 /* SwiftDI.podspec */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		5578FE132078B00100760D6E = {
 			isa = PBXGroup;
 			children = (
 				5578FE372078B00B00760D6E /* Source */,
+				5523AD2F207D0BDB00AD4EF3 /* Support */,
 				5578FE1F2078B00100760D6E /* SwiftDI */,
 				5578FE2A2078B00100760D6E /* SwiftDITests */,
 				5578FE1E2078B00100760D6E /* Products */,
@@ -209,6 +223,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5527A74E207D0C12007A4761 /* README.md in Resources */,
+				5527A74F207D0C12007A4761 /* SwiftDI.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

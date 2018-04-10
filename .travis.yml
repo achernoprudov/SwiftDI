@@ -1,5 +1,12 @@
 language: objective-c
 osx_image: xcode8.3
 
-script: xcodebuild clean && xcodebuild build -project SwiftDI.xcodeproj -scheme SwiftDITests
+script:
+  - xcodebuild -version
+  - xcodebuild
+    -project "$FRAMEWORK_NAME.xcodeproj"
+    -scheme "$FRAMEWORK_NAME-$SCHEME"
+    -sdk iphonesimulator11.3
+    test
+
 

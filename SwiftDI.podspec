@@ -1,15 +1,15 @@
 
 Pod::Spec.new do |s|
-  s.name         = "SwiftDI"
-  s.version      = "1.0.0"
-  s.summary      = "SwiftDI is a dependency manager for Swift projects."
-  s.description  = <<-DESC
+  s.name = "SwiftDI"
+  s.version = "1.0.0"
+  s.summary = "SwiftDI is a dependency manager for Swift projects."
+  s.description = <<-DESC
 SwiftDI is a dependency manager for Swift projects.
 Library currently in development.
                    DESC
 
-  s.homepage     = "https://github.com/achernoprudov/SwiftDI"
-  s.license = { :type => "MIT", :file => "LICENSE" }
+  s.homepage = "https://github.com/achernoprudov/SwiftDI"
+  s.license = 'MIT'
 
   s.author = { "Andrey Chernoprudov" => "dinloq@gmail.com" }
 
@@ -18,6 +18,6 @@ Library currently in development.
   s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
 
-  s.source       = { :git => "https://github.com/achernoprudov/SwiftDI.git", :tag => "#{s.version}" }
-  s.source_files  = "Source/**/*.{swift}"
+  s.source = { :git => "https://github.com/achernoprudov/SwiftDI.git", :tag => "#{s.version}" }
+  s.source_files = "Source/**/*.{swift}"
 end

@@ -67,7 +67,6 @@
 		5578FE132078B00100760D6E = {
 			isa = PBXGroup;
 			children = (
-				5578FE3A2078B11600760D6E /* Ex */,
 				5578FE372078B00B00760D6E /* Source */,
 				5578FE1F2078B00100760D6E /* SwiftDI */,
 				5578FE2A2078B00100760D6E /* SwiftDITests */,
@@ -114,13 +113,6 @@
 				5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		5578FE3A2078B11600760D6E /* Ex */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Ex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

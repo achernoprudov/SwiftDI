@@ -43,7 +43,7 @@ open class Injector {
     ///   - type: dependency type
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
-    open func resolve<T>(_ type: T.Type, tag: String = "") -> T {
+    open func resolve<T>(_ type: T.Type = T.self, tag: String = "") -> T {
         let key = InjectorKey(type: type, tag: tag)
         if let provider = dependencies[key] {
             let dependency = provider.provide(by: self)

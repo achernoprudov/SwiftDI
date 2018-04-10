@@ -23,6 +23,15 @@ class InjectorTest: XCTestCase {
         injector = Injector()
     }
     
+    func test_resolve_implicitly() {
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { _ in expected }
+        
+        let result: String = injector.resolve()
+        XCTAssertEqual(expected, result)
+    }
+    
     func test_resolve_byType() {
         let expected = "hello world"
         injector.bind(String.self)

@@ -9,7 +9,7 @@ Library currently in development.
                    DESC
 
   s.homepage     = "https://github.com/achernoprudov/SwiftDI"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.license = { :type => "MIT", :file => "LICENSE" }
 
   s.author = { "Andrey Chernoprudov" => "dinloq@gmail.com" }
 

@@ -4,11 +4,12 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "SwiftDI is a dependency manager for Swift projects."
   s.description  = <<-DESC
-                  SwiftDI is a dependency manager for Swift projects.
+SwiftDI is a dependency manager for Swift projects.
+Library currently in development.
                    DESC
 
   s.homepage     = "https://github.com/achernoprudov/SwiftDI"
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
   s.author = { "Andrey Chernoprudov" => "dinloq@gmail.com" }
 

@@ -32,6 +32,15 @@ class InjectorTest: XCTestCase {
         XCTAssertEqual(expected, result)
     }
     
+    func test_resolve_implicitly_forced() {
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { _ in expected }
+        
+        let result: String! = injector.resolve()
+        XCTAssertEqual(expected, result)
+    }
+    
     func test_resolve_byType() {
         let expected = "hello world"
         injector.bind(String.self)

@@ -59,6 +59,19 @@ open class Injector {
         return p.resolve(type, tag: tag)
     }
     
+    /// Resolve dependency in Injector.
+    /// Could be fall with error if Injector(or all parents) have not dependency.
+    /// For safe resolving use `resolveSafe`
+    ///
+    /// - Parameters:
+    ///   - type: dependency type
+    ///   - tag: dependency tag
+    /// - Returns: resolved dependency
+    open func resolve<T>(_ tag: String = "") -> Optional<T> {
+        let resolved = resolve(T.self, tag: tag)
+        return Optional.some(resolved)
+    }
+    
     /// Resolve dependency in Injector in safe way.
     /// Could not fall with error but could be nil.
     ///

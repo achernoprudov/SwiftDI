@@ -67,7 +67,6 @@ open class Injector {
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
     open func resolve<T>(_ tag: String = "") -> Optional<T> {
-        let resolved = resolve(T.self, tag: tag)
         return resolve(T.self, tag: tag)
     }
     

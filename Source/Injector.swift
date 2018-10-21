@@ -68,7 +68,7 @@ open class Injector {
     /// - Returns: resolved dependency
     open func resolve<T>(_ tag: String = "") -> Optional<T> {
         let resolved = resolve(T.self, tag: tag)
-        return Optional.some(resolved)
+        return resolve(T.self, tag: tag)
     }
     
     /// Resolve dependency in Injector in safe way.

@@ -64,7 +64,6 @@ open class Injector {
     /// For safe resolving use `resolveSafe`
     ///
     /// - Parameters:
-    ///   - type: dependency type
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
     open func resolve<T>(_ tag: String = "") -> Optional<T> {

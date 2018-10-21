@@ -59,7 +59,7 @@ open class Injector {
         return p.resolve(type, tag: tag)
     }
     
-    /// Resolve dependency in Injector.
+    /// Resolve implicit optional dependency in Injector.
     /// Could be fall with error if Injector(or all parents) have not dependency.
     /// For safe resolving use `resolveSafe`
     ///

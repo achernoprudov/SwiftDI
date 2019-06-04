@@ -12,7 +12,8 @@ Simple dependency injection library for swift projects.
 
 ## Assemble dependencies
 
-```
+```swift
+// Swift
 let injector = Injector()
 
 injector.bind(ApiProtocol.self).with { _ in 
@@ -24,7 +25,8 @@ injector.bind(RepositoryProtocol.self).with { i in
 }
 ```
 ## Inject dependencies to ViewController directly
-```
+```swift
+// Swift
 class Controller: UIViewController {
 
   var injector: Injector! = ... // provide injector to VC
@@ -37,7 +39,8 @@ class Controller: UIViewController {
 }
 ```
 ## Dependency injection options
-```
+```swift
+// Swift
 injector.bind(ApiProtocol.self) // link with type
     .tag("some tag")            // link with custom string tag
     .singleton(true)            // define dependency as singleton

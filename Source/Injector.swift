@@ -7,16 +7,15 @@
 //
 
 open class Injector {
-    
     // MARK: - Instance variables
-    
+
     let config: Config
-    
+
     private let parent: Injector?
-    private var dependencies: [InjectorKey : InjectProvider] = [:]
-    
+    private var dependencies: [InjectorKey: InjectProvider] = [:]
+
     // MARK: - Open
-    
+
     /// Constructor for Injector
     ///
     /// - Parameters:
@@ -26,15 +25,15 @@ open class Injector {
         self.parent = parent
         self.config = config
     }
-    
+
     /// Start binding process
     ///
     /// - Parameter type: type of binding dependency. Could be an protocol
     /// - Returns: builder that help bind another parameters in fluent way
-        open func bind<T>(_ type: T.Type) -> BindingBuilder<T> {
+    open func bind<T>(_ type: T.Type) -> BindingBuilder<T> {
         return BindingBuilder(injector: self, type: type)
     }
-    
+
     /// Resolve dependency in Injector.
     /// Could be fall with error if Injector(or all parents) have not dependency.
     /// For safe resolving use `resolveSafe`
@@ -58,7 +57,7 @@ open class Injector {
         }
         return p.resolve(type, tag: tag)
     }
-    
+
     /// Resolve implicit optional dependency in Injector.
     /// Could be fall with error if Injector(or all parents) have not dependency.
     /// For safe resolving use `resolveSafe`
@@ -66,10 +65,10 @@ open class Injector {
     /// - Parameters:
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
-    open func resolve<T>(_ tag: String = "") -> Optional<T> {
+    open func resolve<T>(_ tag: String = "") -> T? {
         return resolve(T.self, tag: tag)
     }
-    
+
     /// Resolve dependency in Injector in safe way.
     /// Could not fall with error but could be nil.
     ///
@@ -84,16 +83,16 @@ open class Injector {
         }
         return parent?.resolveSafe(type, tag: tag)
     }
-    
+
     /// Open child injector
     ///
     /// - Returns: child injector
     open func plus() -> Injector {
         return Injector(parent: self)
     }
-    
-   // MARK: - Public
-    
+
+    // MARK: - Public
+
     func bind<T>(builder: BindingBuilder<T>, with binding: @escaping (Injector) -> T) {
         let key = InjectorKey(type: builder.type, tag: builder.tag)
         let provider = builder.lazy

@@ -7,11 +7,14 @@
 //
 
 extension Injector {
-    
     /// Config of default options for Injector dependencies
     public struct Config {
-        public static let `default`: Config = Config(tag: "", singleton: true, lazy: true)
-        
+        public static let `default`: Config = Config(
+            tag: "",
+            singleton: true,
+            lazy: true
+        )
+
         public var tag: String
         public var singleton: Bool
         public var lazy: Bool

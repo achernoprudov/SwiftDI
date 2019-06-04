@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name = "SwiftDI"
-  s.version = "1.0.1"
+  s.version = "1.0.2"
   s.summary = "SwiftDI is a dependency manager for Swift projects."
   s.description = <<-DESC
 SwiftDI is a dependency manager for Swift projects.

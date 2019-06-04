@@ -1,0 +1,33 @@
+--swiftversion 4.0
+
+# file options
+
+--exclude Naumen/Library
+
+# format options
+
+--allman false
+--elseposition same-line
+--patternlet inline
+--indent 4
+--indentcase false
+--linebreaks lf
+--ranges no-space
+--importgrouping testable-bottom
+--operatorfunc no-space
+--stripunusedargs closure-only
+--wraparguments before-first
+--wrapcollections before-first
+--closingparen balanced
+
+# rules
+
+--disable andOperator
+--disable anyObjectProtocol
+--disable emptyBraces
+--disable redundantNilInit
+--disable redundantObjc
+--disable redundantRawValues
+
+# TODO
+# --trailingclosures	

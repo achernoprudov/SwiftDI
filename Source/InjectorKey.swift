@@ -6,19 +6,22 @@
 //  Copyright © 2018 Little Stars. All rights reserved.
 //
 
-struct InjectorKey {
+struct InjectorKey: Hashable, Equatable {
+    
+    // MARK: - Instance variables
+    
     let type: Any.Type
     let tag: String
-}
-
-extension InjectorKey: Hashable, Equatable {
-    var hashValue: Int {
-        return ObjectIdentifier(type).hashValue ^ tag.hashValue
+    
+    // MARK: - Public
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(type))
+        hasher.combine(tag)
+    }
+    
+    static func == (lhs: InjectorKey, rhs: InjectorKey) -> Bool {
+        return lhs.type == rhs.type
+            && lhs.tag == rhs.tag
     }
 }
-
-func ==(lhs: InjectorKey, rhs: InjectorKey) -> Bool {
-    return lhs.type == rhs.type
-        && lhs.tag == rhs.tag
-}
-

@@ -11,18 +11,25 @@ Simple dependency injection library for swift projects.
 # Example
 
 ## Assemble dependencies
+Basically `SwiftDI` works as [Service locator](https://en.wikipedia.org/wiki/Service_locator_pattern). It stores
+all dependencies inside own list. But `Injector` can be easily splited into submodules to reduce code linking.
 
 ```swift
 // Swift
 let injector = Injector()
 
-injector.bind(ApiProtocol.self).with { _ in 
-  return RestApi()
-}
-injector.bind(RepositoryProtocol.self).with { i in
-  let api = i.resolve(ApiProtocol.self)
-  return Repository(api: api) 
-}
+injector.bind(ApiProtocol.self)
+    .with { _ -> ApiProtocol in 
+        // lazy dependency creation block
+        return RestApi()
+    }
+
+injector.bind(RepositoryProtocol.self)
+    .with { injector -> RepositoryProtocol.self in
+        // injector could be used to resolve low level dependencies
+        let api = injector.resolve(ApiProtocol.self)
+        return Repository(api: api) 
+    }
 ```
 ## Inject dependencies to ViewController directly
 ```swift
@@ -33,8 +40,8 @@ class Controller: UIViewController {
   var repository: RepositoryProtocol!
 
   func viewDidLoad() {
-    super.viewDidLoad()
-    repository = injector.resolve()
+      super.viewDidLoad()
+      repository = injector.resolve()
   }
 }
 ```
@@ -47,6 +54,27 @@ injector.bind(ApiProtocol.self) // link with type
     .with { ... }               // initilization dependency closure
     
 injector.resolve(ApiProtocol.self, tag: "some value") //resolving by type and tag 
+```
+
+## Submodules
+`Injector` support modularization and could have isollated submodules that know about parent but don't know about siblings.
+
+```swift
+// Top level module
+let injector = Injector()
+
+injector.bind(RepositoryProtocol.self)
+    .with { injector -> RepositoryProtocol.self in
+         return Repository()
+    }
+
+// Screen module
+let childInjector = injector.plus()
+childInjector.bind(PresenterProtocol.self)
+    .with { injector -> PresenterProtocol in 
+        return Presenter(repository: injector.resolve())
+    }
+
 ```
 
 # CocoaPods

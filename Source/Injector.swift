@@ -82,7 +82,7 @@ open class Injector {
         if let provider = dependencies[key] {
             return provider.provide(by: self) as? T
         }
-        return parent?.resolve(type, tag: tag)
+        return parent?.resolveSafe(type, tag: tag)
     }
     
     /// Open child injector

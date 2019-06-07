@@ -39,6 +39,7 @@
 		5527A754207D266C007A4761 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		5527A7CA207DC8E3007A4761 /* SwiftDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5527A7CE207DC8E3007A4761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		552CA06422AA1E96007FBAA5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		5523AD2F207D0BDB00AD4EF3 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				552CA06422AA1E96007FBAA5 /* Package.swift */,
 				5527A754207D266C007A4761 /* .travis.yml */,
 				5527A74C207D0C11007A4761 /* README.md */,
 				5527A74D207D0C12007A4761 /* SwiftDI.podspec */,

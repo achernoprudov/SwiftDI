@@ -10,20 +10,20 @@ class InjectProvider {
     let singleton: Bool
     let binding: (Injector) -> Any
     var instance: Any?
-    
+
     /// Builder for lazy dependencies
     init(singleton: Bool, binding: @escaping (Injector) -> Any) {
         self.singleton = singleton
         self.binding = binding
     }
-    
+
     /// Builder for non lazy dependency
     init(instance: Any) {
-        self.singleton = true
+        singleton = true
         self.instance = instance
-        self.binding = { _ in instance }
+        binding = { _ in instance }
     }
-    
+
     func provide(by injector: Injector) -> Any {
         if let saved = instance {
             return saved

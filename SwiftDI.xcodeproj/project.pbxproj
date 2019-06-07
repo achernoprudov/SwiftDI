@@ -42,7 +42,6 @@
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5578FE2D2078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5578FE382078B08900760D6E /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		5578FE3B2078C8E200760D6E /* InjectorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKey.swift; sourceTree = "<group>"; };
 		5578FE3D2078CA7200760D6E /* InjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectProvider.swift; sourceTree = "<group>"; };
@@ -83,7 +82,7 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
-		5527A7CB207DC8E3007A4761 /* SwiftDITests */ = {
+		5527A7CB207DC8E3007A4761 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				5578FE412078D3B200760D6E /* InjectorTest.swift */,
@@ -91,17 +90,16 @@
 				5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */,
 				5527A7CE207DC8E3007A4761 /* Info.plist */,
 			);
-			path = SwiftDITests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		5578FE132078B00100760D6E = {
 			isa = PBXGroup;
 			children = (
-				5578FE372078B00B00760D6E /* Source */,
+				5578FE372078B00B00760D6E /* Sources */,
 				5523AD2F207D0BDB00AD4EF3 /* Support */,
 				5578FE1F2078B00100760D6E /* SwiftDI */,
-				5578FE2A2078B00100760D6E /* SwiftDITests */,
-				5527A7CB207DC8E3007A4761 /* SwiftDITests */,
+				5527A7CB207DC8E3007A4761 /* Tests */,
 				5578FE1E2078B00100760D6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,15 +122,7 @@
 			path = SwiftDI;
 			sourceTree = "<group>";
 		};
-		5578FE2A2078B00100760D6E /* SwiftDITests */ = {
-			isa = PBXGroup;
-			children = (
-				5578FE2D2078B00100760D6E /* Info.plist */,
-			);
-			path = SwiftDITests;
-			sourceTree = "<group>";
-		};
-		5578FE372078B00B00760D6E /* Source */ = {
+		5578FE372078B00B00760D6E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				5578FE382078B08900760D6E /* Injector.swift */,
@@ -141,7 +131,7 @@
 				5578FE3D2078CA7200760D6E /* InjectProvider.swift */,
 				5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

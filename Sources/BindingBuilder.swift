@@ -7,7 +7,6 @@
 //
 
 open class BindingBuilder<T> {
-    
     private let injector: Injector
     let type: T.Type
     var tag: String
@@ -17,30 +16,30 @@ open class BindingBuilder<T> {
     init(injector: Injector, type: T.Type) {
         self.injector = injector
         self.type = type
-        self.tag = injector.config.tag
-        self.singleton = injector.config.singleton
-        self.lazy = injector.config.lazy
+        tag = injector.config.tag
+        singleton = injector.config.singleton
+        `lazy` = injector.config.lazy
     }
-    
+
     /// Set tag to dependency
     open func tag(_ tag: String) -> BindingBuilder {
         self.tag = tag
         return self
     }
-    
+
     /// Set dependency to be singleton
     open func singleton(_ flag: Bool) -> BindingBuilder {
-        self.singleton = flag
+        singleton = flag
         return self
     }
-    
+
     /// Declare dependency for lazy providing.
     /// If flag is `false` dependency always be a singleton.
-    open func lazy(_ flag: Bool) -> BindingBuilder {
-        self.lazy = flag
+    open func lazy (_ flag: Bool) -> BindingBuilder {
+        `lazy` = flag
         return self
     }
-    
+
     /// Require provide `binding` clodure for dependency.
     /// in `binding` there are injector that could provide cross dependencies.
     /// Function finalize binding process.

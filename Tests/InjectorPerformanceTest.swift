@@ -10,23 +10,22 @@ import XCTest
 @testable import SwiftDI
 
 class InjectorPerformanceTest: XCTestCase {
-    
     var injector: Injector!
-    
+
     override func setUp() {
         super.setUp()
         injector = Injector()
     }
-    
+
     func test_singleInject() {
         let expected = "hello world"
         injector.bind(String.self)
             .with { _ in expected }
-        self.measure {
+        measure {
             _ = injector.resolve(String.self)
         }
     }
-    
+
     func test_constantInOneInjector() {
         let values = (0..<100).map { "value#\($0)" }
         values.forEach { value in
@@ -34,27 +33,26 @@ class InjectorPerformanceTest: XCTestCase {
                 .tag(value)
                 .with { _ in value }
         }
-        
+
         let expected = "hello world"
         injector.bind(String.self)
             .with { _ in expected }
-        self.measure {
+        measure {
             _ = injector.resolve(String.self)
         }
     }
-    
+
     func test_hierarchy() {
         let expected = "hello world"
         injector.bind(String.self)
             .with { _ in expected }
-        
+
         let last = (0..<100).reduce(injector) { (inj, _) -> Injector in
-            return inj!.plus()
+            inj!.plus()
         }
-        
-        self.measure {
+
+        measure {
             _ = last!.resolve(String.self)
         }
     }
-    
 }

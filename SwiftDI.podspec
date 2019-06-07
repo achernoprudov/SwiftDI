@@ -21,5 +21,5 @@ Library currently in development.
   s.swift_version = '5.0'
 
   s.source = { :git => "https://github.com/achernoprudov/SwiftDI.git", :tag => "#{s.version}" }
-  s.source_files = "Source/**/*.{swift}"
+  s.source_files = "Sources/**/*.{swift}"
 end

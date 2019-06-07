@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftDI.svg?style=flat)](http://cocoapods.org/pods/SwiftDI)
 [![Platforms](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](http://cocoapods.org/pods/SwiftDI)
 [![Swift Version](https://img.shields.io/badge/Swift-2.2--3.1.x-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 
 Simple dependency injection library for swift projects.
@@ -78,6 +79,21 @@ childInjector.bind(PresenterProtocol.self)
 ```
 
 # CocoaPods
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Swift and Objective-C Cocoa projects. For setup you have to visit their website.
+Once you have set up your project for CocoaPods you can specify `SwiftDI` dependency in your `Podfile`:  
+
 ```
 pod 'SwiftDI', '~> 1.0'
+```
+
+# Swift Package Manager
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+
+Once you have your Swift package set up, adding `SwiftDI` as a dependency is as easy as adding it to the dependencies value of your `Package.swift`:
+
+### Swift 5
+```
+dependencies: [
+    .package(url: "https://github.com/achernoprudov/SwiftDI.git", from: "1.0.3")
+]
 ```

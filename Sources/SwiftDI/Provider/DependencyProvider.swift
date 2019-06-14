@@ -7,12 +7,14 @@
 //
 
 class DependencyProvider {
+    typealias DependencyBuilder = (Injector) -> Any
+
     private let cache: ProviderCache
     private let builder: DependencyBuilder
 
     init(
         cache: ProviderCache,
-        builder: DependencyBuilder
+        builder: @escaping DependencyBuilder
     ) {
         self.cache = cache
         self.builder = builder
@@ -22,7 +24,7 @@ class DependencyProvider {
         if let cached = cache.dependency {
             return cached
         }
-        let dependency = builder.build(with: injector)
+        let dependency = builder(injector)
         cache.save(dependency)
         return dependency
     }

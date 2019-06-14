@@ -22,7 +22,7 @@ class InjectorInheritanceTest: XCTestCase {
     func test_resolve_parentDependency_byType() {
         let expected = "Hello observer"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         let result = childInjector.resolve(String.self)
         XCTAssertEqual(expected, result)
@@ -33,7 +33,7 @@ class InjectorInheritanceTest: XCTestCase {
         let tagValue = "some tag"
         injector.bind(String.self)
             .tag(tagValue)
-            .with { _ in expected }
+            .with { expected }
 
         let result = childInjector.resolve(String.self, tag: tagValue)
         XCTAssertEqual(expected, result)
@@ -42,7 +42,7 @@ class InjectorInheritanceTest: XCTestCase {
     func test_resolve_childDependency() {
         let expected = "Hello observer"
         childInjector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         let result = injector.resolveSafe(String.self)
         XCTAssertNil(result)

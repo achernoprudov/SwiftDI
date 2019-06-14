@@ -20,7 +20,7 @@ class InjectorPerformanceTest: XCTestCase {
     func test_singleInject() {
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
         measure {
             _ = injector.resolve(String.self)
         }
@@ -31,12 +31,12 @@ class InjectorPerformanceTest: XCTestCase {
         values.forEach { value in
             injector.bind(String.self)
                 .tag(value)
-                .with { _ in value }
+                .with { value }
         }
 
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
         measure {
             _ = injector.resolve(String.self)
         }
@@ -45,7 +45,7 @@ class InjectorPerformanceTest: XCTestCase {
     func test_hierarchy() {
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         let last = (0..<100).reduce(injector) { (inj, _) -> Injector in
             inj!.plus()

@@ -34,11 +34,14 @@ open class BindingBuilder<T> {
     /// Require provide `binding` clodure for dependency.
     /// in `binding` there are injector that could provide cross dependencies.
     /// Function finalize binding process.
-//    open func with(_ binding: @escaping (Injector) -> T) {
-//        injector.bind(builder: self, with: binding)
-//    }
-
-    open func with<P, R>(_ binding: @escaping (P) -> R) {
-        injector.bind(builder: self, with: binding)
+    open func with<P>(_ binding: @escaping (P) -> T) {
+        switch P.self {
+        case is Void.Type:
+            injector.bind(builder: self) { _ in binding(() as! P) }
+        case is Injector.Type:
+            injector.bind(builder: self) { injector in binding(injector as! P) }
+        default:
+            injector.bind(builder: self) { injector in binding(injector.resolve(P.self)) }
+        }
     }
 }

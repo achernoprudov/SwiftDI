@@ -11,8 +11,16 @@ import XCTest
 
 class InjectorTest: XCTestCase {
     // simple test model
-    struct Foo {
+    class Foo: Equatable {
         let foo: String
+
+        init(foo: String) {
+            self.foo = foo
+        }
+
+        static func ==(lhs: InjectorTest.Foo, rhs: InjectorTest.Foo) -> Bool {
+            return lhs.foo == rhs.foo
+        }
     }
 
     var injector: Injector!
@@ -25,7 +33,7 @@ class InjectorTest: XCTestCase {
     func test_resolve_implicitly() {
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         let result: String = injector.resolve()
         XCTAssertEqual(expected, result)
@@ -34,7 +42,7 @@ class InjectorTest: XCTestCase {
     func test_resolve_implicitly_forced() {
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         let result: String! = injector.resolve()
         XCTAssertEqual(expected, result)
@@ -43,7 +51,7 @@ class InjectorTest: XCTestCase {
     func test_resolve_byType() {
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         let result = injector.resolve(String.self)
         XCTAssertEqual(expected, result)
@@ -54,7 +62,7 @@ class InjectorTest: XCTestCase {
         let expected = "hello world"
         injector.bind(String.self)
             .tag(stringTag)
-            .with { _ in expected }
+            .with { expected }
 
         let result = injector.resolve(String.self, tag: stringTag)
         XCTAssertEqual(expected, result)
@@ -68,10 +76,10 @@ class InjectorTest: XCTestCase {
 
         injector.bind(String.self)
             .tag(tagValue1)
-            .with { _ in expected1 }
+            .with { expected1 }
         injector.bind(String.self)
             .tag(tagValue2)
-            .with { _ in expected2 }
+            .with { expected2 }
 
         let result1 = injector.resolve(String.self, tag: tagValue1)
         let result2 = injector.resolve(String.self, tag: tagValue2)
@@ -81,8 +89,8 @@ class InjectorTest: XCTestCase {
 
     func test_resolve_singleton() {
         injector.bind(Date.self)
-            .singleton(true)
-            .with { _ in Date() }
+            .lifecycle(.singleton)
+            .with { Date() }
 
         let result1 = injector.resolve(Date.self)
         let result2 = injector.resolve(Date.self)
@@ -90,10 +98,10 @@ class InjectorTest: XCTestCase {
         XCTAssertEqual(result1, result2)
     }
 
-    func test_resolve_notSingleton() {
+    func test_resolve_prototype() {
         injector.bind(Date.self)
-            .singleton(false)
-            .with { _ in Date() }
+            .lifecycle(.prototype)
+            .with { Date() }
 
         let result1 = injector.resolve(Date.self)
         let result2 = injector.resolve(Date.self)
@@ -101,13 +109,51 @@ class InjectorTest: XCTestCase {
         XCTAssertNotEqual(result1, result2)
     }
 
+    func test_resolve_soft_negative() {
+        injector.bind(Foo.self)
+            .lifecycle(.soft)
+            .with { Foo(foo: UUID().description) }
+
+        var result1 = ""
+
+        autoreleasepool {
+            result1 = injector.resolve(Foo.self).foo
+        }
+        let result2 = injector.resolve(Foo.self).foo
+
+        XCTAssertNotEqual(result1, result2)
+    }
+
+    func test_resolve_soft_positive() {
+        injector.bind(Foo.self)
+            .lifecycle(.soft)
+            .with { Foo(foo: Date().description) }
+
+        let foo1 = injector.resolve(Foo.self)
+        let foo2 = injector.resolve(Foo.self)
+
+        XCTAssertEqual(foo1, foo2)
+    }
+
     func test_resolve_inBind() {
         let expected = "hello world"
         injector.bind(String.self)
-            .with { _ in expected }
+            .with { expected }
 
         injector.bind(Foo.self)
-            .with { i in Foo(foo: i.resolve(String.self)) }
+            .with { (i: Injector) in Foo(foo: i.resolve(String.self)) }
+
+        let result = injector.resolve(Foo.self)
+        XCTAssertEqual(result.foo, expected)
+    }
+
+    func test_resolve_constructor() {
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { expected }
+
+        injector.bind(Foo.self)
+            .with(Foo.init(foo:))
 
         let result = injector.resolve(Foo.self)
         XCTAssertEqual(result.foo, expected)

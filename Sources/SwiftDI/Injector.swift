@@ -12,7 +12,7 @@ open class Injector {
     let config: Config
 
     private let parent: Injector?
-    private var dependencies: [InjectorKey: InjectProvider] = [:]
+    private var dependencies: [InjectorKey: DependencyProvider] = [:]
 
     // MARK: - Open
 
@@ -93,13 +93,11 @@ open class Injector {
 
     // MARK: - Public
 
-    func bind<P, R>(builder: BindingBuilder<R>, with binding: @escaping (P) -> R) {
+    func bind<R>(builder: BindingBuilder<R>, with binding: @escaping (Injector) -> R) {
         let key = InjectorKey(type: builder.type, tag: builder.tag)
         let cache = ProviderCacheFactory.default.cache(for: builder.lifecycle)
+        let provider = DependencyProvider(cache: cache, builder: binding)
 
-        let provider = builder.lazy
-            ? InjectProvider(singleton: builder.singleton) { binding($0) as Any }
-            : InjectProvider(instance: binding(self) as Any)
         dependencies[key] = provider
     }
 }

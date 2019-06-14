@@ -7,6 +7,7 @@
 //
 
 import XCTest
+
 @testable import SwiftDI
 
 class InjectorPerformanceTest: XCTestCase {

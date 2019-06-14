@@ -17,6 +17,7 @@
 		5539E64322B3BF5300C972CD /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64222B3BF5300C972CD /* DependencyProvider.swift */; };
 		5539E64A22B3C1F800C972CD /* ProviderCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64922B3C1F800C972CD /* ProviderCache.swift */; };
 		5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */; };
+		5539E65222B3DD1100C972CD /* ConstructorInjectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E65122B3DD1100C972CD /* ConstructorInjectionTest.swift */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
 		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
@@ -46,6 +47,7 @@
 		5539E64222B3BF5300C972CD /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		5539E64922B3C1F800C972CD /* ProviderCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCache.swift; sourceTree = "<group>"; };
 		5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyLifecycle.swift; sourceTree = "<group>"; };
+		5539E65122B3DD1100C972CD /* ConstructorInjectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorInjectionTest.swift; sourceTree = "<group>"; };
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				5578FE412078D3B200760D6E /* InjectorTest.swift */,
 				5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */,
 				5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */,
+				5539E65122B3DD1100C972CD /* ConstructorInjectionTest.swift */,
 				5527A7CE207DC8E3007A4761 /* Info.plist */,
 			);
 			path = SwiftDITests;
@@ -294,6 +297,7 @@
 			files = (
 				5527A7D7207DC8EC007A4761 /* InjectorPerformanceTest.swift in Sources */,
 				5527A7D6207DC8EC007A4761 /* InjectorInheritanceTest.swift in Sources */,
+				5539E65222B3DD1100C972CD /* ConstructorInjectionTest.swift in Sources */,
 				5527A7D5207DC8EC007A4761 /* InjectorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

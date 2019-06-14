@@ -19,13 +19,13 @@ open class BindingBuilder<T> {
         lifecycle = injector.config.lifecycle
     }
 
-    /// Set tag to dependency
+    /// Set dependency tag
     open func tag(_ tag: String) -> BindingBuilder {
         self.tag = tag
         return self
     }
 
-    /// Set dependency to be singleton
+    /// Set dependency lifecycle
     open func lifecycle(_ lifecycle: DependencyLifecycle) -> BindingBuilder {
         self.lifecycle = lifecycle
         return self
@@ -34,7 +34,11 @@ open class BindingBuilder<T> {
     /// Require provide `binding` clodure for dependency.
     /// in `binding` there are injector that could provide cross dependencies.
     /// Function finalize binding process.
-    open func with(_ binding: @escaping (Injector) -> T) {
+//    open func with(_ binding: @escaping (Injector) -> T) {
+//        injector.bind(builder: self, with: binding)
+//    }
+
+    open func with<P, R>(_ binding: @escaping (P) -> R) {
         injector.bind(builder: self, with: binding)
     }
 }

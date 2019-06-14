@@ -15,9 +15,9 @@
 		5527A7D6207DC8EC007A4761 /* InjectorInheritanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE452078E29300760D6E /* InjectorInheritanceTest.swift */; };
 		5527A7D7207DC8EC007A4761 /* InjectorPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */; };
 		5539E64322B3BF5300C972CD /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64222B3BF5300C972CD /* DependencyProvider.swift */; };
-		5539E64522B3BFB300C972CD /* InstantDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64422B3BFB300C972CD /* InstantDependencyProvider.swift */; };
 		5539E64A22B3C1F800C972CD /* ProviderCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64922B3C1F800C972CD /* ProviderCache.swift */; };
 		5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */; };
+		5539E64E22B3CA1600C972CD /* DependencyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64D22B3CA1600C972CD /* DependencyBuilder.swift */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
 		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
@@ -45,9 +45,9 @@
 		5527A7CE207DC8E3007A4761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552CA06422AA1E96007FBAA5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		5539E64222B3BF5300C972CD /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
-		5539E64422B3BFB300C972CD /* InstantDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDependencyProvider.swift; sourceTree = "<group>"; };
 		5539E64922B3C1F800C972CD /* ProviderCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCache.swift; sourceTree = "<group>"; };
 		5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyLifecycle.swift; sourceTree = "<group>"; };
+		5539E64D22B3CA1600C972CD /* DependencyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyBuilder.swift; sourceTree = "<group>"; };
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,18 +114,18 @@
 		5539E64122B3BF0B00C972CD /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				5539E64922B3C1F800C972CD /* ProviderCache.swift */,
 				5539E64222B3BF5300C972CD /* DependencyProvider.swift */,
-				5539E64422B3BFB300C972CD /* InstantDependencyProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
 		};
-		5539E64822B3C1E600C972CD /* Cache */ = {
+		5539E64822B3C1E600C972CD /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				5539E64922B3C1F800C972CD /* ProviderCache.swift */,
+				5539E64D22B3CA1600C972CD /* DependencyBuilder.swift */,
 			);
-			path = Cache;
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		5578FE132078B00100760D6E = {
@@ -150,7 +150,7 @@
 		5578FE1F2078B00100760D6E /* SwiftDI */ = {
 			isa = PBXGroup;
 			children = (
-				5539E64822B3C1E600C972CD /* Cache */,
+				5539E64822B3C1E600C972CD /* Builder */,
 				5539E64122B3BF0B00C972CD /* Provider */,
 				5578FE382078B08900760D6E /* Injector.swift */,
 				5578FE492079CE8900760D6E /* Injector+Config.swift */,
@@ -298,7 +298,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5578FE392078B08900760D6E /* Injector.swift in Sources */,
-				5539E64522B3BFB300C972CD /* InstantDependencyProvider.swift in Sources */,
 				5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */,
 				5578FE4A2079CE8900760D6E /* Injector+Config.swift in Sources */,
 				5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */,
@@ -306,6 +305,7 @@
 				5539E64322B3BF5300C972CD /* DependencyProvider.swift in Sources */,
 				5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */,
 				5539E64A22B3C1F800C972CD /* ProviderCache.swift in Sources */,
+				5539E64E22B3CA1600C972CD /* DependencyBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

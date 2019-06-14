@@ -6,27 +6,34 @@
 //  Copyright © 2019 Little Stars. All rights reserved.
 //
 
-protocol ProviderCache {
-    var cachedDependency: Any? { get set }
+protocol ProviderCache: class {
+    var dependency: Any? { get }
+
+    func save(_ dependency: Any)
 }
 
 class SingletonCache: ProviderCache {
-    var cachedDependency: Any?
+    var dependency: Any?
+
+    func save(_ dependency: Any) {
+        self.dependency = dependency
+    }
 }
 
 class NoCache: ProviderCache {
-    var cachedDependency: Any? {
-        get { return nil }
-        set {}
+    let dependency: Any? = nil
+
+    func save(_ dependency: Any) {
     }
 }
 
 class SoftCache: ProviderCache {
-    weak var _dependency: AnyObject?
+    private weak var _dependency: AnyObject?
 
-    var cachedDependency: Any? {
-        get { return _dependency }
-        set { _dependency = newValue as AnyObject }
+    var dependency: Any? { return _dependency }
+
+    func save(_ dependency: Any) {
+        _dependency = dependency as AnyObject
     }
 }
 

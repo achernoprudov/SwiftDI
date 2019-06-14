@@ -93,7 +93,7 @@ open class Injector {
 
     // MARK: - Public
 
-    func bind<T>(builder: BindingBuilder<T>, with binding: @escaping (Injector) -> T) {
+    func bind<P, R>(builder: BindingBuilder<R>, with binding: @escaping (P) -> R) {
         let key = InjectorKey(type: builder.type, tag: builder.tag)
         let cache = ProviderCacheFactory.default.cache(for: builder.lifecycle)
 

@@ -95,6 +95,8 @@ open class Injector {
 
     func bind<T>(builder: BindingBuilder<T>, with binding: @escaping (Injector) -> T) {
         let key = InjectorKey(type: builder.type, tag: builder.tag)
+        let cache = ProviderCacheFactory.default.cache(for: builder.lifecycle)
+
         let provider = builder.lazy
             ? InjectProvider(singleton: builder.singleton) { binding($0) as Any }
             : InjectProvider(instance: binding(self) as Any)

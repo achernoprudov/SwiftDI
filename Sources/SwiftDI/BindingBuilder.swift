@@ -10,15 +10,13 @@ open class BindingBuilder<T> {
     private let injector: Injector
     let type: T.Type
     var tag: String
-    var singleton: Bool
-    var lazy: Bool
+    var lifecycle: DependencyLifecycle
 
     init(injector: Injector, type: T.Type) {
         self.injector = injector
         self.type = type
         tag = injector.config.tag
-        singleton = injector.config.singleton
-        `lazy` = injector.config.lazy
+        lifecycle = injector.config.lifecycle
     }
 
     /// Set tag to dependency
@@ -28,15 +26,8 @@ open class BindingBuilder<T> {
     }
 
     /// Set dependency to be singleton
-    open func singleton(_ flag: Bool) -> BindingBuilder {
-        singleton = flag
-        return self
-    }
-
-    /// Declare dependency for lazy providing.
-    /// If flag is `false` dependency always be a singleton.
-    open func lazy (_ flag: Bool) -> BindingBuilder {
-        `lazy` = flag
+    open func lifecycle(_ lifecycle: DependencyLifecycle) -> BindingBuilder {
+        self.lifecycle = lifecycle
         return self
     }
 

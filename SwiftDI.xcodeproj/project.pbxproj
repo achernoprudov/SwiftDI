@@ -16,8 +16,8 @@
 		5527A7D7207DC8EC007A4761 /* InjectorPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */; };
 		5539E64322B3BF5300C972CD /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64222B3BF5300C972CD /* DependencyProvider.swift */; };
 		5539E64522B3BFB300C972CD /* InstantDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64422B3BFB300C972CD /* InstantDependencyProvider.swift */; };
-		5539E64722B3C05700C972CD /* LazyDependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64622B3C05700C972CD /* LazyDependencyProvider.swift */; };
 		5539E64A22B3C1F800C972CD /* ProviderCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64922B3C1F800C972CD /* ProviderCache.swift */; };
+		5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
 		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
@@ -46,8 +46,8 @@
 		552CA06422AA1E96007FBAA5 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		5539E64222B3BF5300C972CD /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		5539E64422B3BFB300C972CD /* InstantDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantDependencyProvider.swift; sourceTree = "<group>"; };
-		5539E64622B3C05700C972CD /* LazyDependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyDependencyProvider.swift; sourceTree = "<group>"; };
 		5539E64922B3C1F800C972CD /* ProviderCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCache.swift; sourceTree = "<group>"; };
+		5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyLifecycle.swift; sourceTree = "<group>"; };
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,7 +116,6 @@
 			children = (
 				5539E64222B3BF5300C972CD /* DependencyProvider.swift */,
 				5539E64422B3BFB300C972CD /* InstantDependencyProvider.swift */,
-				5539E64622B3C05700C972CD /* LazyDependencyProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -157,6 +156,7 @@
 				5578FE492079CE8900760D6E /* Injector+Config.swift */,
 				5578FE3B2078C8E200760D6E /* InjectorKey.swift */,
 				5578FE3D2078CA7200760D6E /* InjectProvider.swift */,
+				5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */,
 				5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */,
 				5578FE202078B00100760D6E /* SwiftDI.h */,
 				5578FE212078B00100760D6E /* Info.plist */,
@@ -298,8 +298,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5578FE392078B08900760D6E /* Injector.swift in Sources */,
-				5539E64722B3C05700C972CD /* LazyDependencyProvider.swift in Sources */,
 				5539E64522B3BFB300C972CD /* InstantDependencyProvider.swift in Sources */,
+				5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */,
 				5578FE4A2079CE8900760D6E /* Injector+Config.swift in Sources */,
 				5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */,
 				5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */,

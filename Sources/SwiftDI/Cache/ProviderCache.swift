@@ -31,11 +31,16 @@ class SoftCache: ProviderCache {
 }
 
 class ProviderCacheFactory {
-    func cache(for lifecycle: Lifecycle) -> ProviderCache {
+    static let `default` = ProviderCacheFactory()
+
+    func cache(for lifecycle: DependencyLifecycle) -> ProviderCache {
         switch lifecycle {
-        case .prototype: return NoCache()
-        case .singleton: return SingletonCache()
-        case .soft: return SoftCache()
+        case .prototype:
+            return NoCache()
+        case .singleton:
+            return SingletonCache()
+        case .soft:
+            return SoftCache()
         }
     }
 }

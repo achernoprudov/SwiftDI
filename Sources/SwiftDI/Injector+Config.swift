@@ -11,12 +11,13 @@ extension Injector {
     public struct Config {
         public static let `default`: Config = Config(
             tag: "",
-            singleton: true,
-            lazy: true
+            lifecycle: .soft
         )
 
+        /// Default dependency tag
         public var tag: String
-        public var singleton: Bool
-        public var lazy: Bool
+
+        /// Default dependency lifecycle
+        public var lifecycle: DependencyLifecycle
     }
 }

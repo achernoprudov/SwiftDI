@@ -12,7 +12,7 @@ open class Injector {
     let config: Config
 
     private let parent: Injector?
-    private var dependencies: [InjectorKey: DependencyProvider] = [:]
+    private var dependencies: [DependencyKey: DependencyProvider] = [:]
 
     // MARK: - Open
 
@@ -43,7 +43,7 @@ open class Injector {
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
     open func resolve<T>(_ type: T.Type = T.self, tag: String = "") -> T {
-        let key = InjectorKey(type: type, tag: tag)
+        let key = DependencyKey(type: type, tag: tag)
         if let provider = dependencies[key] {
             let dependency = provider.provide(by: self)
             guard let result = dependency as? T else {
@@ -77,7 +77,7 @@ open class Injector {
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
     open func resolveSafe<T>(_ type: T.Type, tag: String = "") -> T? {
-        let key = InjectorKey(type: type, tag: tag)
+        let key = DependencyKey(type: type, tag: tag)
         if let provider = dependencies[key] {
             return provider.provide(by: self) as? T
         }
@@ -94,7 +94,7 @@ open class Injector {
     // MARK: - Public
 
     func bind<R>(builder: BindingBuilder<R>, with binding: @escaping (Injector) -> R) {
-        let key = InjectorKey(type: builder.type, tag: builder.tag)
+        let key = DependencyKey(type: builder.type, tag: builder.tag)
         let cache = ProviderCacheFactory.default.cache(for: builder.lifecycle)
         let provider = DependencyProvider(cache: cache, builder: binding)
 

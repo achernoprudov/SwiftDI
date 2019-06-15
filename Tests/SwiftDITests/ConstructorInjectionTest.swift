@@ -28,7 +28,7 @@ class ConstructorInjectionTest: XCTestCase {
         XCTAssertNotNil(result)
     }
 
-    func test_bind_oneParamConstructor() {
+    func test_bind_oneParamConstructor_explicit() {
         struct Foo {
             let foo: String
         }
@@ -44,6 +44,22 @@ class ConstructorInjectionTest: XCTestCase {
         XCTAssertEqual(result.foo, expected)
     }
 
+    func test_bind_oneParamConstructor_implicit() {
+        struct Foo {
+            let foo: String
+        }
+
+        let expected = "hello world"
+        injector.bind(String.self)
+            .with { expected }
+
+        injector.bind(Foo.self)
+            .with(Foo.init)
+
+        let result = injector.resolve(Foo.self)
+        XCTAssertEqual(result.foo, expected)
+    }
+
     func test_bind_injectorInConstructor() {
         struct Foo {
             let injector: Injector
@@ -54,5 +70,57 @@ class ConstructorInjectionTest: XCTestCase {
 
         let result = injector.resolve(Foo.self)
         XCTAssertTrue(result.injector === injector)
+    }
+
+    func test_bind_threeParamsConstructor_explicit() {
+        struct Foo {
+            let foo: String
+            let num: Int
+            let bool: Bool
+        }
+
+        let expectedString = "hello world"
+        injector.bind(String.self)
+            .with { expectedString }
+
+        let expectedNum = 32
+        injector.bind(Int.self)
+            .with { expectedNum }
+
+        let expectedBool = true
+        injector.bind(Bool.self)
+            .with { expectedBool }
+
+        injector.bind(Foo.self)
+            .with(Foo.init(foo:num:bool:))
+
+        let result = injector.resolve(Foo.self)
+        XCTAssertEqual(result.foo, expectedString)
+    }
+
+    func test_bind_threeParamsConstructor_implicit() {
+        struct Foo {
+            let foo: String
+            let num: Int
+            let bool: Bool
+        }
+
+        let expectedString = "hello world"
+        injector.bind(String.self)
+            .with { expectedString }
+
+        let expectedNum = 32
+        injector.bind(Int.self)
+            .with { expectedNum }
+
+        let expectedBool = true
+        injector.bind(Bool.self)
+            .with { expectedBool }
+
+        injector.bind(Foo.self)
+            .with(Foo.init)
+
+        let result = injector.resolve(Foo.self)
+        XCTAssertEqual(result.foo, expectedString)
     }
 }

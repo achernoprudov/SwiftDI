@@ -7,7 +7,7 @@
 //
 
 open class BindingBuilder<T> {
-    private let injector: Injector
+    let injector: Injector
     let type: T.Type
     var tag: String
     var lifecycle: DependencyLifecycle

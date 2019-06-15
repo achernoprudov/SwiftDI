@@ -18,10 +18,10 @@
 		5539E64A22B3C1F800C972CD /* ProviderCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64922B3C1F800C972CD /* ProviderCache.swift */; };
 		5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */; };
 		5539E65222B3DD1100C972CD /* ConstructorInjectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E65122B3DD1100C972CD /* ConstructorInjectionTest.swift */; };
+		5539E65422B3DF7100C972CD /* BindingBuilder+Parametrized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E65322B3DF7100C972CD /* BindingBuilder+Parametrized.swift */; };
 		5578FE2E2078B00100760D6E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5578FE202078B00100760D6E /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5578FE392078B08900760D6E /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE382078B08900760D6E /* Injector.swift */; };
-		5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* InjectorKey.swift */; };
-		5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3D2078CA7200760D6E /* InjectProvider.swift */; };
+		5578FE3C2078C8E200760D6E /* DependencyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3B2078C8E200760D6E /* DependencyKey.swift */; };
 		5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */; };
 		5578FE4A2079CE8900760D6E /* Injector+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578FE492079CE8900760D6E /* Injector+Config.swift */; };
 /* End PBXBuildFile section */
@@ -48,12 +48,12 @@
 		5539E64922B3C1F800C972CD /* ProviderCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderCache.swift; sourceTree = "<group>"; };
 		5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyLifecycle.swift; sourceTree = "<group>"; };
 		5539E65122B3DD1100C972CD /* ConstructorInjectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorInjectionTest.swift; sourceTree = "<group>"; };
+		5539E65322B3DF7100C972CD /* BindingBuilder+Parametrized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BindingBuilder+Parametrized.swift"; sourceTree = "<group>"; };
 		5578FE1D2078B00100760D6E /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578FE202078B00100760D6E /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		5578FE212078B00100760D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5578FE382078B08900760D6E /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
-		5578FE3B2078C8E200760D6E /* InjectorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKey.swift; sourceTree = "<group>"; };
-		5578FE3D2078CA7200760D6E /* InjectProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectProvider.swift; sourceTree = "<group>"; };
+		5578FE3B2078C8E200760D6E /* DependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyKey.swift; sourceTree = "<group>"; };
 		5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBuilder.swift; sourceTree = "<group>"; };
 		5578FE412078D3B200760D6E /* InjectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorTest.swift; sourceTree = "<group>"; };
 		5578FE432078D41200760D6E /* InjectorPerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorPerformanceTest.swift; sourceTree = "<group>"; };
@@ -121,17 +121,11 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
-		5539E64822B3C1E600C972CD /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
 		5539E65022B3D05700C972CD /* BindingBuilder */ = {
 			isa = PBXGroup;
 			children = (
 				5578FE3F2078CAAB00760D6E /* BindingBuilder.swift */,
+				5539E65322B3DF7100C972CD /* BindingBuilder+Parametrized.swift */,
 			);
 			path = BindingBuilder;
 			sourceTree = "<group>";
@@ -159,12 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				5539E65022B3D05700C972CD /* BindingBuilder */,
-				5539E64822B3C1E600C972CD /* Builder */,
 				5539E64122B3BF0B00C972CD /* Provider */,
 				5578FE382078B08900760D6E /* Injector.swift */,
 				5578FE492079CE8900760D6E /* Injector+Config.swift */,
-				5578FE3B2078C8E200760D6E /* InjectorKey.swift */,
-				5578FE3D2078CA7200760D6E /* InjectProvider.swift */,
+				5578FE3B2078C8E200760D6E /* DependencyKey.swift */,
 				5539E64B22B3C4E100C972CD /* DependencyLifecycle.swift */,
 				5578FE202078B00100760D6E /* SwiftDI.h */,
 				5578FE212078B00100760D6E /* Info.plist */,
@@ -309,10 +301,10 @@
 				5578FE392078B08900760D6E /* Injector.swift in Sources */,
 				5539E64C22B3C4E100C972CD /* DependencyLifecycle.swift in Sources */,
 				5578FE4A2079CE8900760D6E /* Injector+Config.swift in Sources */,
+				5539E65422B3DF7100C972CD /* BindingBuilder+Parametrized.swift in Sources */,
 				5578FE402078CAAB00760D6E /* BindingBuilder.swift in Sources */,
-				5578FE3E2078CA7200760D6E /* InjectProvider.swift in Sources */,
 				5539E64322B3BF5300C972CD /* DependencyProvider.swift in Sources */,
-				5578FE3C2078C8E200760D6E /* InjectorKey.swift in Sources */,
+				5578FE3C2078C8E200760D6E /* DependencyKey.swift in Sources */,
 				5539E64A22B3C1F800C972CD /* ProviderCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

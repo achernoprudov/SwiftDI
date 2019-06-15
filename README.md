@@ -83,7 +83,7 @@ childInjector.bind(PresenterProtocol.self)
 Once you have set up your project for CocoaPods you can specify `SwiftDI` dependency in your `Podfile`:  
 
 ```
-pod 'SwiftDI', '~> 1.0'
+pod 'SwiftDI', '~> 2.0'
 ```
 
 # Swift Package Manager
@@ -94,6 +94,6 @@ Once you have your Swift package set up, adding `SwiftDI` as a dependency is as 
 ### Swift 5
 ```
 dependencies: [
-    .package(url: "https://github.com/achernoprudov/SwiftDI.git", from: "1.0.3")
+    .package(url: "https://github.com/achernoprudov/SwiftDI.git", from: "2.0.0")
 ]
 ```

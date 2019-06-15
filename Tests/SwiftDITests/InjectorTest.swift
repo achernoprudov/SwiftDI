@@ -89,7 +89,7 @@ class InjectorTest: XCTestCase {
 
     func test_resolve_singleton() {
         injector.bind(Date.self)
-            .lifecycle(.singleton)
+            .scope(.singleton)
             .with { Date() }
 
         let result1 = injector.resolve(Date.self)
@@ -100,7 +100,7 @@ class InjectorTest: XCTestCase {
 
     func test_resolve_prototype() {
         injector.bind(Date.self)
-            .lifecycle(.prototype)
+            .scope(.prototype)
             .with { Date() }
 
         let result1 = injector.resolve(Date.self)
@@ -109,9 +109,9 @@ class InjectorTest: XCTestCase {
         XCTAssertNotEqual(result1, result2)
     }
 
-    func test_resolve_soft_negative() {
+    func test_resolve_weak_negative() {
         injector.bind(Foo.self)
-            .lifecycle(.soft)
+            .scope(.weak)
             .with { Foo(foo: UUID().description) }
 
         var result1 = ""
@@ -124,9 +124,9 @@ class InjectorTest: XCTestCase {
         XCTAssertNotEqual(result1, result2)
     }
 
-    func test_resolve_soft_positive() {
+    func test_resolve_weak_positive() {
         injector.bind(Foo.self)
-            .lifecycle(.soft)
+            .scope(.weak)
             .with { Foo(foo: Date().description) }
 
         let foo1 = injector.resolve(Foo.self)

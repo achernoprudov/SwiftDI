@@ -10,13 +10,13 @@ open class BindingBuilder<T> {
     let injector: Injector
     let type: T.Type
     var tag: String
-    var lifecycle: DependencyLifecycle
+    var scope: DependencyScope
 
     init(injector: Injector, type: T.Type) {
         self.injector = injector
         self.type = type
         tag = injector.config.tag
-        lifecycle = injector.config.lifecycle
+        scope = injector.config.scope
     }
 
     /// Set dependency tag
@@ -25,9 +25,9 @@ open class BindingBuilder<T> {
         return self
     }
 
-    /// Set dependency lifecycle
-    open func lifecycle(_ lifecycle: DependencyLifecycle) -> BindingBuilder {
-        self.lifecycle = lifecycle
+    /// Set dependency scope
+    open func scope(_ scope: DependencyScope) -> BindingBuilder {
+        self.scope = scope
         return self
     }
 

@@ -1,5 +1,5 @@
 //
-//  DependencyLifecycle.swift
+//  DependencyScope.swift
 //  SwiftDI
 //
 //  Created by Andrey Chernoprudov on 14/06/2019.
@@ -10,7 +10,7 @@
 ///
 /// - singleton: only one depeendency for injector
 /// - prototype: each time new dependency
-/// - soft: dependency same until at least one has it
-public enum DependencyLifecycle {
-    case singleton, prototype, soft
+/// - weak: dependency stored as weak reference and uses same until at least one object has reference to it
+public enum DependencyScope {
+    case singleton, prototype, weak
 }

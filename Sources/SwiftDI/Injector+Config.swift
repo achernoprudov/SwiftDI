@@ -11,13 +11,13 @@ extension Injector {
     public struct Config {
         public static let `default`: Config = Config(
             tag: "",
-            lifecycle: .soft
+            scope: .weak
         )
 
         /// Default dependency tag
         public var tag: String
 
-        /// Default dependency lifecycle
-        public var lifecycle: DependencyLifecycle
+        /// Default dependency scope
+        public var scope: DependencyScope
     }
 }

@@ -12,7 +12,7 @@ protocol ProviderCache: class {
     func save(_ dependency: Any)
 }
 
-class SingletonCache: ProviderCache {
+class SingletonScopeCache: ProviderCache {
     var dependency: Any?
 
     func save(_ dependency: Any) {
@@ -27,7 +27,7 @@ class NoCache: ProviderCache {
     }
 }
 
-class SoftCache: ProviderCache {
+class WeakScopeCache: ProviderCache {
     private weak var _dependency: AnyObject?
 
     var dependency: Any? { return _dependency }
@@ -40,14 +40,14 @@ class SoftCache: ProviderCache {
 class ProviderCacheFactory {
     static let `default` = ProviderCacheFactory()
 
-    func cache(for lifecycle: DependencyLifecycle) -> ProviderCache {
-        switch lifecycle {
+    func cache(for scope: DependencyScope) -> ProviderCache {
+        switch scope {
         case .prototype:
             return NoCache()
         case .singleton:
-            return SingletonCache()
-        case .soft:
-            return SoftCache()
+            return SingletonScopeCache()
+        case .weak:
+            return WeakScopeCache()
         }
     }
 }

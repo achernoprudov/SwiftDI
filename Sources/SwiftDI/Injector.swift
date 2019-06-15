@@ -95,7 +95,7 @@ open class Injector {
 
     func bind<R>(builder: BindingBuilder<R>, with binding: @escaping (Injector) -> R) {
         let key = DependencyKey(type: builder.type, tag: builder.tag)
-        let cache = ProviderCacheFactory.default.cache(for: builder.lifecycle)
+        let cache = ProviderCacheFactory.default.cache(for: builder.scope)
         let provider = DependencyProvider(cache: cache, builder: binding)
 
         dependencies[key] = provider

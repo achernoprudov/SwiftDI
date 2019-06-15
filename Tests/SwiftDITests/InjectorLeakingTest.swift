@@ -48,11 +48,11 @@ class InjectorLeakingTest: QuickSpec {
                     }
                 }
 
-                it("and singleton lifecycle is leaking", closure: {
+                it("and singleton scope is leaking", closure: {
                     let leakTest = LeakTest {
                         let injector = Injector()
                         injector.bind(Bar.self)
-                            .lifecycle(.singleton)
+                            .scope(.singleton)
                             .with(Bar.init)
 
                         let bar: Bar = injector.resolve()
@@ -63,11 +63,11 @@ class InjectorLeakingTest: QuickSpec {
                     expect(leakTest).to(leak())
                 })
 
-                it("and prototype lifecycle is not leaking", closure: {
+                it("and prototype scope is not leaking", closure: {
                     let leakTest = LeakTest {
                         let injector = Injector()
                         injector.bind(Bar.self)
-                            .lifecycle(.prototype)
+                            .scope(.prototype)
                             .with(Bar.init)
 
                         let bar: Bar = injector.resolve()
@@ -78,11 +78,11 @@ class InjectorLeakingTest: QuickSpec {
                     expect(leakTest).toNot(leak())
                 })
 
-                it("and soft lifecycle is not leaking", closure: {
+                it("and weak scope is not leaking", closure: {
                     let leakTest = LeakTest {
                         let injector = Injector()
                         injector.bind(Bar.self)
-                            .lifecycle(.soft)
+                            .scope(.weak)
                             .with(Bar.init)
 
                         let bar: Bar = injector.resolve()

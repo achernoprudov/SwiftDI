@@ -107,7 +107,7 @@
 		OBJ_245 /* BindingBuilder+Parametrized.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BindingBuilder+Parametrized.swift */; };
 		OBJ_246 /* BindingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* BindingBuilder.swift */; };
 		OBJ_247 /* DependencyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* DependencyKey.swift */; };
-		OBJ_248 /* DependencyLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* DependencyLifecycle.swift */; };
+		OBJ_248 /* DependencyScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* DependencyScope.swift */; };
 		OBJ_249 /* Injector+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Injector+Config.swift */; };
 		OBJ_250 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Injector.swift */; };
 		OBJ_251 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* DependencyProvider.swift */; };
@@ -200,7 +200,7 @@
 		OBJ_129 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_13 /* BindingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBuilder.swift; sourceTree = "<group>"; };
 		OBJ_14 /* DependencyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyKey.swift; sourceTree = "<group>"; };
-		OBJ_15 /* DependencyLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyLifecycle.swift; sourceTree = "<group>"; };
+		OBJ_15 /* DependencyScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyScope.swift; sourceTree = "<group>"; };
 		OBJ_16 /* Injector+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Injector+Config.swift"; sourceTree = "<group>"; };
 		OBJ_17 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		OBJ_19 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
@@ -566,7 +566,7 @@
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* BindingBuilder */,
 				OBJ_14 /* DependencyKey.swift */,
-				OBJ_15 /* DependencyLifecycle.swift */,
+				OBJ_15 /* DependencyScope.swift */,
 				OBJ_16 /* Injector+Config.swift */,
 				OBJ_17 /* Injector.swift */,
 				OBJ_18 /* Provider */,
@@ -913,7 +913,7 @@
 				OBJ_245 /* BindingBuilder+Parametrized.swift in Sources */,
 				OBJ_246 /* BindingBuilder.swift in Sources */,
 				OBJ_247 /* DependencyKey.swift in Sources */,
-				OBJ_248 /* DependencyLifecycle.swift in Sources */,
+				OBJ_248 /* DependencyScope.swift in Sources */,
 				OBJ_249 /* Injector+Config.swift in Sources */,
 				OBJ_250 /* Injector.swift in Sources */,
 				OBJ_251 /* DependencyProvider.swift in Sources */,

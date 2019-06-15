@@ -3,6 +3,7 @@ osx_image: xcode10.2
 
 script:
   - swift build
+  - swift package generate-xcodeproj
   - xcodebuild -version
   - xcodebuild 
     -destination 'arch=x86_64'

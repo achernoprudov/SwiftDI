@@ -3,7 +3,7 @@
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/SwiftDI.svg?style=flat)](http://cocoapods.org/pods/SwiftDI)
 [![License](https://img.shields.io/cocoapods/l/SwiftDI.svg?style=flat)](http://cocoapods.org/pods/SwiftDI)
 [![Platforms](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](http://cocoapods.org/pods/SwiftDI)
-[![Swift Version](https://img.shields.io/badge/Swift-2.2--3.1.x-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/swift-5-brightgreen.svg)](https://developer.apple.com/swift)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 
@@ -20,17 +20,16 @@ all dependencies inside own list. But `Injector` can be easily splited into subm
 let injector = Injector()
 
 injector.bind(ApiProtocol.self)
-    .with { _ -> ApiProtocol in 
-        // lazy dependency creation block
-        return RestApi()
-    }
+    .with { return RestApi() }
 
 injector.bind(RepositoryProtocol.self)
-    .with { injector -> RepositoryProtocol.self in
-        // injector could be used to resolve low level dependencies
-        let api = injector.resolve(ApiProtocol.self)
+    .with { (api: ApiProtocol) -> RepositoryProtocol.self in
         return Repository(api: api) 
     }
+
+// or you can bind Repository constructor directly
+injector.bind(RepositoryProtocol.self)
+    .with(Repository.init(api:))
 ```
 ## Inject dependencies to ViewController directly
 ```swift
@@ -51,7 +50,7 @@ class Controller: UIViewController {
 // Swift
 injector.bind(ApiProtocol.self) // link with type
     .tag("some tag")            // link with custom string tag
-    .singleton(true)            // define dependency as singleton
+    .scope(.singleton)          // define dependency as singleton
     .with { ... }               // initilization dependency closure
     
 injector.resolve(ApiProtocol.self, tag: "some value") //resolving by type and tag 

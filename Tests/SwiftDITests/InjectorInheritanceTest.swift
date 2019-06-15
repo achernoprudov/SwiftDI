@@ -6,50 +6,61 @@
 //  Copyright © 2018 Little Stars. All rights reserved.
 //
 
-import XCTest
+import Nimble
+import Quick
+
 @testable import SwiftDI
 
-class InjectorInheritanceTest: XCTestCase {
-    var injector: Injector!
-    var childInjector: Injector!
+class InjectorInheritanceTest: QuickSpec {
+    override func spec() {
+        var injector: Injector!
+        var childInjector: Injector!
 
-    override func setUp() {
-        super.setUp()
-        injector = Injector()
-        childInjector = injector.plus()
-    }
+        beforeEach {
+            injector = Injector()
+            childInjector = injector.plus()
+        }
 
-    func test_resolve_parentDependency_byType() {
-        let expected = "Hello observer"
-        injector.bind(String.self)
-            .with { expected }
+        describe("resolve") {
+            describe("parent dependency", closure: {
+                it("by type", closure: {
+                    let expected = "Hello observer"
+                    injector.bind(String.self)
+                        .with { expected }
 
-        let result = childInjector.resolve(String.self)
-        XCTAssertEqual(expected, result)
-    }
+                    let result = childInjector.resolve(String.self)
 
-    func test_resolve_parentDependency_byTag() {
-        let expected = "Hello observer"
-        let tagValue = "some tag"
-        injector.bind(String.self)
-            .tag(tagValue)
-            .with { expected }
+                    expect(result) == expected
+                })
 
-        let result = childInjector.resolve(String.self, tag: tagValue)
-        XCTAssertEqual(expected, result)
-    }
+                it("by tag", closure: {
+                    let expected = "Hello observer"
+                    let tagValue = "some tag"
+                    injector.bind(String.self)
+                        .tag(tagValue)
+                        .with { expected }
 
-    func test_resolve_childDependency() {
-        let expected = "Hello observer"
-        childInjector.bind(String.self)
-            .with { expected }
+                    let result = childInjector.resolve(String.self, tag: tagValue)
 
-        let result = injector.resolveSafe(String.self)
-        XCTAssertNil(result)
-    }
+                    expect(result) == expected
+                })
+            })
 
-    func test_resolve_unexistent_parentDependency() {
-        let result = childInjector.resolveSafe(String.self)
-        XCTAssertNil(result)
+            it("child dependency", closure: {
+                let expected = "Hello observer"
+                childInjector.bind(String.self)
+                    .with { expected }
+
+                let result = injector.resolveSafe(String.self)
+
+                expect(result).to(beNil())
+            })
+
+            it("unexistent dependency", closure: {
+                let result = childInjector.resolveSafe(String.self)
+
+                expect(result).to(beNil())
+            })
+        }
     }
 }

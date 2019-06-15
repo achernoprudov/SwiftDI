@@ -16,6 +16,8 @@ private extension Injector {
     }
 }
 
+// MARK: - Bindings with various parameters
+
 public extension BindingBuilder {
     func with<P1, P2>(_ binding: @escaping ((P1, P2)) -> T) {
         injector.bind(builder: self) { i in

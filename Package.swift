@@ -12,8 +12,8 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/Quick/Quick.git", from: "2.1.0"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "8.0.2"),
     ],
     targets: [
         .target(
@@ -22,7 +22,7 @@ let package = Package(
         ),
         .testTarget(
             name: "SwiftDITests",
-            dependencies: ["SwiftDI"]
+            dependencies: ["SwiftDI", "Quick", "Nimble"]
         ),
     ]
 )

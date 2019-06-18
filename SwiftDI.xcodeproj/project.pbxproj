@@ -27,9 +27,14 @@
 		5539E68A22B4BA6700C972CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E68922B4BA6700C972CD /* AppDelegate.swift */; };
 		5539E68C22B4BA6700C972CD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E68B22B4BA6700C972CD /* MasterViewController.swift */; };
 		5539E68E22B4BA6700C972CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E68D22B4BA6700C972CD /* DetailViewController.swift */; };
-		5539E69122B4BA6700C972CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5539E68F22B4BA6700C972CD /* Main.storyboard */; };
 		5539E69322B4BA6900C972CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5539E69222B4BA6900C972CD /* Assets.xcassets */; };
 		5539E69622B4BA6900C972CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5539E69422B4BA6900C972CD /* LaunchScreen.storyboard */; };
+		5539E6A822B8964000C972CD /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E6A622B895E700C972CD /* RootAssembly.swift */; };
+		5539E6A922B8964500C972CD /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E69E22B4BB5D00C972CD /* NoteRepository.swift */; };
+		5539E6AA22B8964E00C972CD /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E6A022B4BC3100C972CD /* NoteListViewController.swift */; };
+		5539E6AB22B8964E00C972CD /* NoteListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E6A222B4BC4500C972CD /* NoteListAssembly.swift */; };
+		5539E6AD22B897F700C972CD /* SwiftDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftDI::SwiftDI::Product" /* SwiftDI.framework */; };
+		5539E6B122B899A900C972CD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539E6AE22B8983000C972CD /* Router.swift */; };
 		OBJ_135 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* AdapterProtocols.swift */; };
 		OBJ_136 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* AssertionDispatcher.swift */; };
 		OBJ_137 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* AssertionRecorder.swift */; };
@@ -182,10 +187,14 @@
 		5539E68922B4BA6700C972CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5539E68B22B4BA6700C972CD /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		5539E68D22B4BA6700C972CD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		5539E69022B4BA6700C972CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5539E69222B4BA6900C972CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5539E69522B4BA6900C972CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5539E69722B4BA6900C972CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5539E69E22B4BB5D00C972CD /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
+		5539E6A022B4BC3100C972CD /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
+		5539E6A222B4BC4500C972CD /* NoteListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListAssembly.swift; sourceTree = "<group>"; };
+		5539E6A622B895E700C972CD /* RootAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
+		5539E6AE22B8983000C972CD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_100 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
@@ -296,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5539E6AD22B897F700C972CD /* SwiftDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +364,12 @@
 		5539E68822B4BA6700C972CD /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				5539E6A422B895D000C972CD /* Modules */,
+				5539E69D22B4BB4B00C972CD /* Domain */,
+				5539E69C22B4BB4300C972CD /* List */,
 				5539E68922B4BA6700C972CD /* AppDelegate.swift */,
 				5539E68B22B4BA6700C972CD /* MasterViewController.swift */,
 				5539E68D22B4BA6700C972CD /* DetailViewController.swift */,
-				5539E68F22B4BA6700C972CD /* Main.storyboard */,
 				5539E69222B4BA6900C972CD /* Assets.xcassets */,
 				5539E69422B4BA6900C972CD /* LaunchScreen.storyboard */,
 				5539E69722B4BA6900C972CD /* Info.plist */,
@@ -371,6 +383,47 @@
 				5539E68822B4BA6700C972CD /* Notes */,
 			);
 			path = Samples;
+			sourceTree = "<group>";
+		};
+		5539E69C22B4BB4300C972CD /* List */ = {
+			isa = PBXGroup;
+			children = (
+				5539E6A022B4BC3100C972CD /* NoteListViewController.swift */,
+				5539E6A222B4BC4500C972CD /* NoteListAssembly.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		5539E69D22B4BB4B00C972CD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5539E69E22B4BB5D00C972CD /* NoteRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5539E6A422B895D000C972CD /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5539E6A522B895D900C972CD /* Root */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5539E6A522B895D900C972CD /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				5539E6A622B895E700C972CD /* RootAssembly.swift */,
+				5539E6AE22B8983000C972CD /* Router.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		5539E6AC22B897F700C972CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		OBJ_11 /* BindingBuilder */ = {
@@ -525,6 +578,7 @@
 				OBJ_127 /* LICENSE */,
 				OBJ_128 /* SwiftDI.podspec */,
 				OBJ_129 /* README.md */,
+				5539E6AC22B897F700C972CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -848,6 +902,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				5539E68622B4BA6700C972CD /* Notes */,
 				"Nimble::Nimble" /* Nimble */,
 				"Nimble::SwiftPMPackageDescription" /* NimblePackageDescription */,
 				"Quick::Quick" /* Quick */,
@@ -857,7 +912,6 @@
 				"SwiftDI::SwiftPMPackageDescription" /* SwiftDIPackageDescription */,
 				"SwiftDI::SwiftDIPackageTests::ProductTarget" /* SwiftDIPackageTests */,
 				"SwiftDI::SwiftDITests" /* SwiftDITests */,
-				5539E68622B4BA6700C972CD /* Notes */,
 			);
 		};
 /* End PBXProject section */
@@ -869,7 +923,6 @@
 			files = (
 				5539E69622B4BA6900C972CD /* LaunchScreen.storyboard in Resources */,
 				5539E69322B4BA6900C972CD /* Assets.xcassets in Resources */,
-				5539E69122B4BA6700C972CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,7 +933,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5539E6B122B899A900C972CD /* Router.swift in Sources */,
+				5539E6A922B8964500C972CD /* NoteRepository.swift in Sources */,
 				5539E68E22B4BA6700C972CD /* DetailViewController.swift in Sources */,
+				5539E6AA22B8964E00C972CD /* NoteListViewController.swift in Sources */,
+				5539E6A822B8964000C972CD /* RootAssembly.swift in Sources */,
+				5539E6AB22B8964E00C972CD /* NoteListAssembly.swift in Sources */,
 				5539E68C22B4BA6700C972CD /* MasterViewController.swift in Sources */,
 				5539E68A22B4BA6700C972CD /* AppDelegate.swift in Sources */,
 			);
@@ -1072,14 +1130,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5539E68F22B4BA6700C972CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5539E69022B4BA6700C972CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5539E69422B4BA6900C972CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1125,6 +1175,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1140,13 +1191,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Notes/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Samples/Notes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.littlestars.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
@@ -1189,6 +1241,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1199,13 +1252,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Notes/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Samples/Notes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.littlestars.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

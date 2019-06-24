@@ -11,13 +11,15 @@ extension Injector {
     public struct Config {
         public static let `default`: Config = Config(
             tag: "",
-            scope: .weak
+            scope: .weak,
+            storage: .concurrent
         )
 
         /// Default dependency tag
         public var tag: String
-
         /// Default dependency scope
         public var scope: DependencyScope
+        /// Dependency storage type.
+        public var storage: DependencyStorageType
     }
 }

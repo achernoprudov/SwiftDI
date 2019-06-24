@@ -48,7 +48,7 @@ class InjectorConcurrencyTest: QuickSpec {
                 }
             }
 
-            for _ in 0...1000 {
+            for _ in 0...100_000 {
                 group.enter()
 
                 DispatchQueue.global().async {

@@ -6,11 +6,14 @@
 //  Copyright © 2019 Little Stars. All rights reserved.
 //
 
+import Foundation
+
 class DependencyProvider {
     typealias DependencyBuilder = (Injector) -> Any
 
     private let cache: ProviderCache
     private let builder: DependencyBuilder
+    private let lock = NSRecursiveLock()
 
     init(
         cache: ProviderCache,
@@ -21,11 +24,14 @@ class DependencyProvider {
     }
 
     func provide(by injector: Injector) -> Any {
-        if let cached = cache.dependency {
+        lock.lock()
+        if let cached = cache.get() {
+            lock.unlock()
             return cached
         }
         let dependency = builder(injector)
         cache.save(dependency)
+        lock.unlock()
         return dependency
     }
 }

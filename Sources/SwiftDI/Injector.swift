@@ -12,7 +12,7 @@ open class Injector {
     let config: Config
 
     private let parent: Injector?
-    private var dependencies: [DependencyKey: DependencyProvider] = [:]
+    private let storage: DependencyStorageProtocol
 
     // MARK: - Open
 
@@ -24,6 +24,13 @@ open class Injector {
     public init(parent: Injector? = nil, config: Config = .default) {
         self.parent = parent
         self.config = config
+
+        switch config.storage {
+        case .concurrent:
+            storage = ConcurrentDependencyStorage()
+        case .simple:
+            storage = SimpleDependencyStorage()
+        }
     }
 
     /// Start binding process
@@ -44,7 +51,7 @@ open class Injector {
     /// - Returns: resolved dependency
     open func resolve<T>(_ type: T.Type = T.self, tag: String = "") -> T {
         let key = DependencyKey(type: type, tag: tag)
-        if let provider = dependencies[key] {
+        if let provider = storage.fetchProvider(by: key) {
             let dependency = provider.provide(by: self)
             guard let result = dependency as? T else {
                 let subjectType = Mirror(reflecting: dependency).subjectType
@@ -78,7 +85,7 @@ open class Injector {
     /// - Returns: resolved dependency
     open func resolveSafe<T>(_ type: T.Type, tag: String = "") -> T? {
         let key = DependencyKey(type: type, tag: tag)
-        if let provider = dependencies[key] {
+        if let provider = storage.fetchProvider(by: key) {
             return provider.provide(by: self) as? T
         }
         return parent?.resolveSafe(type, tag: tag)
@@ -98,6 +105,6 @@ open class Injector {
         let cache = ProviderCacheFactory.default.cache(for: builder.scope)
         let provider = DependencyProvider(cache: cache, builder: binding)
 
-        dependencies[key] = provider
+        storage.save(provider, for: key)
     }
 }

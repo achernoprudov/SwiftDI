@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		556EED3922BCF40E004195B8 /* InjectorConcurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */; };
+		556EED3B22BD05EA004195B8 /* DependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3A22BD05EA004195B8 /* DependencyStorage.swift */; };
 		OBJ_141 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* AdapterProtocols.swift */; };
 		OBJ_142 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* AssertionDispatcher.swift */; };
 		OBJ_143 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* AssertionRecorder.swift */; };
@@ -171,6 +172,7 @@
 
 /* Begin PBXFileReference section */
 		556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorConcurrencyTest.swift; sourceTree = "<group>"; };
+		556EED3A22BD05EA004195B8 /* DependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorage.swift; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_100 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
@@ -572,11 +574,12 @@
 				OBJ_9 /* SwiftDI.h */,
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* BindingBuilder */,
+				OBJ_18 /* Provider */,
 				OBJ_14 /* DependencyKey.swift */,
 				OBJ_15 /* DependencyScope.swift */,
+				556EED3A22BD05EA004195B8 /* DependencyStorage.swift */,
 				OBJ_16 /* Injector+Config.swift */,
 				OBJ_17 /* Injector.swift */,
-				OBJ_18 /* Provider */,
 			);
 			name = SwiftDI;
 			path = Sources/SwiftDI;
@@ -924,6 +927,7 @@
 				OBJ_255 /* Injector+Config.swift in Sources */,
 				OBJ_256 /* Injector.swift in Sources */,
 				OBJ_257 /* DependencyProvider.swift in Sources */,
+				556EED3B22BD05EA004195B8 /* DependencyStorage.swift in Sources */,
 				OBJ_258 /* ProviderCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,10 +6,11 @@
 //  Copyright © 2019 Little Stars. All rights reserved.
 //
 
-protocol ProviderCache: class {
-    var dependency: Any? { get }
+import Foundation
 
+protocol ProviderCache: class {
     func save(_ dependency: Any)
+    func get() -> Any?
 }
 
 class SingletonScopeCache: ProviderCache {
@@ -18,22 +19,30 @@ class SingletonScopeCache: ProviderCache {
     func save(_ dependency: Any) {
         self.dependency = dependency
     }
+
+    func get() -> Any? {
+        return dependency
+    }
 }
 
 class NoCache: ProviderCache {
-    let dependency: Any? = nil
-
     func save(_ dependency: Any) {
+    }
+
+    func get() -> Any? {
+        return nil
     }
 }
 
 class WeakScopeCache: ProviderCache {
-    private weak var _dependency: AnyObject?
-
-    var dependency: Any? { return _dependency }
+    private weak var dependency: AnyObject?
 
     func save(_ dependency: Any) {
-        _dependency = dependency as AnyObject
+        self.dependency = dependency as AnyObject
+    }
+
+    func get() -> Any? {
+        return dependency
     }
 }
 

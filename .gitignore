@@ -232,6 +232,7 @@ playground.xcworkspace
 Packages
 xcuserdata
 *.xcodeproj
+.swiftpm/*
 
 ### Xcode ###
 # Xcode

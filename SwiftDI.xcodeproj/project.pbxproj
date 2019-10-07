@@ -279,7 +279,7 @@
 		OBJ_99 /* BeginWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginWith.swift; sourceTree = "<group>"; };
 		"Quick::Quick::Product" /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuickSpecBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"SwiftDI::SwiftDI::Product" /* SwiftDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftDI::SwiftDI::Product" /* SwiftDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwiftDI::SwiftDITests::Product" /* SwiftDITests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwiftDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1211,6 +1211,7 @@
 		OBJ_248 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1232,6 +1233,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = SwiftDI;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
+				USE_HEADERMAP = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
@@ -1239,6 +1241,7 @@
 		OBJ_249 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1260,6 +1263,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = SwiftDI;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
+				USE_HEADERMAP = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;

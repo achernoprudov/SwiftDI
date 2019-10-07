@@ -173,6 +173,7 @@
 /* Begin PBXFileReference section */
 		556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorConcurrencyTest.swift; sourceTree = "<group>"; };
 		556EED3A22BD05EA004195B8 /* DependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorage.swift; sourceTree = "<group>"; };
+		55E1A02E234B5CD700721C35 /* SwiftDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftDI.h; path = Sources/SwiftDI.h; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_100 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
@@ -266,7 +267,6 @@
 		OBJ_87 /* BeAKindOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAKindOf.swift; sourceTree = "<group>"; };
 		OBJ_88 /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeAnInstanceOf.swift; sourceTree = "<group>"; };
 		OBJ_89 /* BeCloseTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeCloseTo.swift; sourceTree = "<group>"; };
-		OBJ_9 /* SwiftDI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftDI.h; sourceTree = "<group>"; };
 		OBJ_90 /* BeEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
 		OBJ_91 /* BeGreaterThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThan.swift; sourceTree = "<group>"; };
 		OBJ_92 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 			path = Hooks;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -490,7 +490,6 @@
 				OBJ_134 /* SwiftDI.podspec */,
 				OBJ_135 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_61 /* QuickSpecBase */ = {
@@ -555,6 +554,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				55E1A02E234B5CD700721C35 /* SwiftDI.h */,
 				OBJ_8 /* SwiftDI */,
 			);
 			name = Sources;
@@ -571,7 +571,6 @@
 		OBJ_8 /* SwiftDI */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* SwiftDI.h */,
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* BindingBuilder */,
 				OBJ_18 /* Provider */,
@@ -784,7 +783,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_125 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

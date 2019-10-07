@@ -328,6 +328,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5500BE13234B685F00B7B6C9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5500BE0F234B666D00B7B6C9 /* module.modulemap */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* BindingBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,8 +579,8 @@
 		OBJ_8 /* SwiftDI */ = {
 			isa = PBXGroup;
 			children = (
+				5500BE13234B685F00B7B6C9 /* include */,
 				55E1A02E234B5CD700721C35 /* SwiftDI.h */,
-				5500BE0F234B666D00B7B6C9 /* module.modulemap */,
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* BindingBuilder */,
 				OBJ_18 /* Provider */,

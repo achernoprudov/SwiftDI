@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		556EED3922BCF40E004195B8 /* InjectorConcurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */; };
 		556EED3B22BD05EA004195B8 /* DependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3A22BD05EA004195B8 /* DependencyStorage.swift */; };
+		55BB9AEC234C562A0088555E /* SwiftDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E1A02E234B5CD700721C35 /* SwiftDI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		OBJ_141 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* AdapterProtocols.swift */; };
 		OBJ_142 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* AssertionDispatcher.swift */; };
 		OBJ_143 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* AssertionRecorder.swift */; };
@@ -637,6 +638,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		55BB9AEB234C56230088555E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55BB9AEC234C562A0088555E /* SwiftDI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_243 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 0;
@@ -730,6 +739,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_247 /* Build configuration list for PBXNativeTarget "SwiftDI" */;
 			buildPhases = (
+				55BB9AEB234C56230088555E /* Headers */,
 				OBJ_250 /* Sources */,
 				OBJ_259 /* Frameworks */,
 			);
@@ -1222,16 +1232,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwiftDI.xcodeproj/SwiftDI_Info.plist;
+				INFOPLIST_FILE = Sources/SwiftDI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1241,7 +1252,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = SwiftDI;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1254,16 +1265,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwiftDI.xcodeproj/SwiftDI_Info.plist;
+				INFOPLIST_FILE = Sources/SwiftDI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -1273,7 +1285,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = SwiftDI;
 				TVOS_DEPLOYMENT_TARGET = 9.0;

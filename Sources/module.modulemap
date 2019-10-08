@@ -1,0 +1,6 @@
+framework module SwiftDI {
+    umbrella header "SwiftDI.h"
+
+    export *
+    module * { export * }
+}

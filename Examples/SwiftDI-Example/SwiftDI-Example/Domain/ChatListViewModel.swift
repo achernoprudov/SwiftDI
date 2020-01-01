@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class ChatListViewModel: ObservableObject {
+class ChatListViewModel: ObservableObject, Identifiable {
     // MARK: - Instance variables
 
     @Published
@@ -24,5 +24,6 @@ class ChatListViewModel: ObservableObject {
 
     func loadChats() {
         chats = repository.fetchChats()
+        objectWillChange.send()
     }
 }

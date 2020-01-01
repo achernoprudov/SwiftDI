@@ -13,13 +13,18 @@ struct ContentView: View {
     var viewModel: ChatListViewModel
 
     var body: some View {
-        VStack {
-            List(viewModel.chats) { chat in
-                Text(chat.name)
-            }.onAppear {
+        NavigationView {
+            VStack {
+                List(viewModel.chats) { chat in
+                    NavigationLink(destination: Text("Second screen")) {
+                        Text(chat.name)
+                    }
+                }
+            }
+            .navigationBarTitle("Chats")
+            .onAppear {
                 self.viewModel.loadChats()
             }
-            Text("Hello, World!")
         }
     }
 }
@@ -28,7 +33,7 @@ struct ContentView_Previews: PreviewProvider {
     struct RepositoryStub: ChatListRepositoryProtocol {
         func fetchChats() -> [Chat] {
             return [
-                Chat(id: 1, name: "foo"),
+                Chat(id: 1, name: "Ivan"),
             ]
         }
     }

@@ -16,13 +16,13 @@ class ChatViewModel: ObservableObject {
 
     // MARK: - Instance variables
 
-    private let chatId: Int
+    private let chat: Chat
     private let repository: MessageRepositoryProtocol
 
     // MARK: - Public
 
-    init(chatId: Int, repository: MessageRepositoryProtocol) {
-        self.chatId = chatId
+    init(chat: Chat, repository: MessageRepositoryProtocol) {
+        self.chat = chat
         self.repository = repository
     }
 

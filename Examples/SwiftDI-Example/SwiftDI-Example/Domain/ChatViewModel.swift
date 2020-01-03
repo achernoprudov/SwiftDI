@@ -11,12 +11,13 @@ import SwiftUI
 class ChatViewModel: ObservableObject {
     // MARK: - Public variables
 
+    let chat: Chat
+
     @Published
     var messages: [Message] = []
 
     // MARK: - Instance variables
 
-    private let chat: Chat
     private let repository: MessageRepositoryProtocol
 
     // MARK: - Public
@@ -27,12 +28,12 @@ class ChatViewModel: ObservableObject {
     }
 
     func loadMessages() {
-        messages = repository.fetchMessages(forChat: chatId)
+        messages = repository.fetchMessages(forChat: chat.id)
         objectWillChange.send()
     }
 
     func add(message: String) {
-        repository.add(message: message, toChat: chatId)
+        repository.add(message: message, toChat: chat.id)
         loadMessages()
     }
 }

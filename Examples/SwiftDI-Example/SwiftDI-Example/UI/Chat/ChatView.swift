@@ -19,10 +19,31 @@ struct ChatView: View {
                     Text(message.text)
                 }
             }
-            .navigationBarTitle("Chat")
+            .navigationBarTitle(viewModel.chat.name)
             .onAppear {
                 self.viewModel.loadMessages()
             }
         }
+    }
+}
+
+struct ChatView_Previews: PreviewProvider {
+    struct RepositoryStub: MessageRepositoryProtocol {
+        func fetchMessages(forChat chat: ChatId) -> [Message] {
+            return [
+                Message(id: 0, own: true, text: "foo", author: "Me"),
+                Message(id: 1, own: false, text: "bar", author: "Dima"),
+            ]
+        }
+
+        func add(message: String, toChat chat: ChatId) {
+        }
+    }
+
+    static var previews: some View {
+        let repository = RepositoryStub()
+        let chat = Chat(id: 0, name: "Dima")
+        let viewModel = ChatViewModel(chat: chat, repository: repository)
+        return ChatView(viewModel: viewModel)
     }
 }

@@ -30,9 +30,10 @@ class AppRouter: AppRouterProtocol {
         return ChatListView(viewModel: injector.resolve())
     }
 
-    func chat(for chatId: Int) -> some View {
-//        let scopeBuilder = ChatListScopeBuilder(injector: injector)
-//        let injector = scopeBuilder.build()
-        return Text("foo \(chatId)")
+    func chat(for chat: Chat) -> some View {
+        let scopeBuilder = ChatScopeBuilder(injector: injector, chat: chat)
+        let injector = scopeBuilder.build()
+
+        return ChatView(viewModel: injector.resolve())
     }
 }

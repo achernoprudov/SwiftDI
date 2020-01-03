@@ -6,7 +6,7 @@
 //  Copyright © 2020 LittleStars. All rights reserved.
 //
 
-struct Message {
+struct Message: Identifiable {
     let id: Int
     let own: Bool
     let text: String

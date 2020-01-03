@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let scopeBuilder = ChatListScopeBuilder(injector: mainInjector)
         let injector = scopeBuilder.build()
 
-        let contentView = ContentView(viewModel: injector.resolve())
+        let contentView = ChatListView(viewModel: injector.resolve())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

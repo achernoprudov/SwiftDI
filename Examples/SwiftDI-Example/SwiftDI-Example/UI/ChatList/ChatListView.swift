@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ChatListView.swift
 //  SwiftDI-Example
 //
 //  Created by Andrey Chernoprudov on 01.01.2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ChatListView: View {
     @ObservedObject
     var viewModel: ChatListViewModel
 
@@ -41,6 +41,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let repository = RepositoryStub()
         let viewModel = ChatListViewModel(repository: repository)
-        return ContentView(viewModel: viewModel)
+        return ChatListView(viewModel: viewModel)
     }
 }

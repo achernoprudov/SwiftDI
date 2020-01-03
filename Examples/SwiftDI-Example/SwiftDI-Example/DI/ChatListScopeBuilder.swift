@@ -3,7 +3,7 @@
 //  SwiftDI-Example
 //
 //  Created by Andrey Chernoprudov on 01.01.2020.
-//  Copyright © 2020 Naumen. All rights reserved.
+//  Copyright © 2020 LittleStars. All rights reserved.
 //
 
 import SwiftDI

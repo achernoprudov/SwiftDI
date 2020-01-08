@@ -3,7 +3,7 @@
 //  SwiftDI-Example
 //
 //  Created by Andrey Chernoprudov on 03.01.2020.
-//  Copyright © 2020 Naumen. All rights reserved.
+//  Copyright © 2020 LittleStars. All rights reserved.
 //
 
 import SwiftDI
@@ -16,7 +16,7 @@ struct ChatScopeBuilder {
         let chatListScopeInjector = injector.plus()
 
         chatListScopeInjector.bind(Chat.self)
-            .with { [chat] in chat }
+            .with(chat)
 
         chatListScopeInjector.bind(ChatViewModel.self)
             .with(ChatViewModel.init)

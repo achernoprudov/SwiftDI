@@ -44,4 +44,8 @@ open class BindingBuilder<T> {
             injector.bind(builder: self) { injector in binding(injector.resolve(P.self)) }
         }
     }
+
+    open func with(_ dependency: T) {
+        injector.bind(builder: self) { _ in dependency }
+    }
 }

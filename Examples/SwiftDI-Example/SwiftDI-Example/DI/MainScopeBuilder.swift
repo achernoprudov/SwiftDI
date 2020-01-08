@@ -12,6 +12,10 @@ struct MainScopeBuilder {
     func build() -> Injector {
         let injector = Injector()
 
+        injector.bind(ScreenFactory.self)
+            .scope(.weak)
+            .with(ScreenFactoryImpl.init)
+
         injector.bind(ChatsStubProvider.self)
             .with(ChatsStubProvider.init)
 

@@ -1,5 +1,5 @@
 //
-//  AppRouter.swift
+//  ScreenFactory.swift
 //  SwiftDI-Example
 //
 //  Created by Andrey Chernoprudov on 03.01.2020.
@@ -9,10 +9,19 @@
 import SwiftDI
 import SwiftUI
 
-protocol AppRouterProtocol {
+/// Dirty hack: cant declare opaque type in protocol so have to
+/// declare `abstract` class with default implementation.
+class ScreenFactory {
+    open func chatsList() -> some View {
+        return Text("not implemented")
+    }
+
+    open func chat(for chat: Chat) -> some View {
+        return Text("not implemented")
+    }
 }
 
-class AppRouter: AppRouterProtocol {
+class ScreenFactoryImpl: ScreenFactory {
     // MARK: - Instance variables
 
     private let injector: Injector
@@ -27,7 +36,10 @@ class AppRouter: AppRouterProtocol {
         let scopeBuilder = ChatListScopeBuilder(injector: injector)
         let injector = scopeBuilder.build()
 
-        return ChatListView(viewModel: injector.resolve())
+        return ChatListView(
+            screenFactory: self,
+            viewModel: injector.resolve()
+        )
     }
 
     func chat(for chat: Chat) -> some View {

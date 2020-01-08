@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ChatListView: View {
+    let screenFactory: ScreenFactory
     @ObservedObject
     var viewModel: ChatListViewModel
 
@@ -29,7 +30,7 @@ struct ChatListView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ChatListView_Previews: PreviewProvider {
     struct RepositoryStub: ChatListRepositoryProtocol {
         func fetchChats() -> [Chat] {
             return [
@@ -41,6 +42,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let repository = RepositoryStub()
         let viewModel = ChatListViewModel(repository: repository)
-        return ChatListView(viewModel: viewModel)
+        let screenFactory = ScreenFactory()
+        return ChatListView(screenFactory: screenFactory, viewModel: viewModel)
     }
 }

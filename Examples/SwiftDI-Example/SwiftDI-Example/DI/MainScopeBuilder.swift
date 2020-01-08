@@ -14,7 +14,7 @@ struct MainScopeBuilder {
 
         injector.bind(ScreenFactory.self)
             .scope(.weak)
-            .with(ScreenFactoryImpl.init)
+            .with(ScreenFactory.init)
 
         injector.bind(ChatsStubProvider.self)
             .with(ChatsStubProvider.init)

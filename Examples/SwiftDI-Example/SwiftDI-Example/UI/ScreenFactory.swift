@@ -9,19 +9,7 @@
 import SwiftDI
 import SwiftUI
 
-/// Dirty hack: cant declare opaque type in protocol so have to
-/// declare `abstract` class with default implementation.
 class ScreenFactory {
-    open func chatsList() -> some View {
-        return Text("not implemented")
-    }
-
-    open func chat(for chat: Chat) -> some View {
-        return Text("not implemented")
-    }
-}
-
-class ScreenFactoryImpl: ScreenFactory {
     // MARK: - Instance variables
 
     private let injector: Injector

@@ -6,6 +6,7 @@
 //  Copyright © 2020 LittleStars. All rights reserved.
 //
 
+import SwiftDI
 import SwiftUI
 
 struct ChatListView: View {
@@ -17,7 +18,7 @@ struct ChatListView: View {
         NavigationView {
             VStack {
                 List(viewModel.chats) { chat in
-                    NavigationLink(destination: Text("Second screen")) {
+                    NavigationLink(destination: self.screenFactory.chat(for: chat)) {
                         Text(chat.name)
                     }
                 }
@@ -42,7 +43,7 @@ struct ChatListView_Previews: PreviewProvider {
     static var previews: some View {
         let repository = RepositoryStub()
         let viewModel = ChatListViewModel(repository: repository)
-        let screenFactory = ScreenFactory()
+        let screenFactory = ScreenFactory(injector: Injector())
         return ChatListView(screenFactory: screenFactory, viewModel: viewModel)
     }
 }

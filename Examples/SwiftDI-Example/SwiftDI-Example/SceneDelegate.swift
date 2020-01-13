@@ -23,8 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        let screenFactory = mainInjector.resolve(ScreenFactory.self)
-        let contentView = screenFactory.chatsList()
+        let contentView = ChatListView(injector: mainInjector)
+            .environmentObject(KeyboardObserver.shared)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

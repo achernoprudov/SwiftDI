@@ -6,10 +6,13 @@
 //  Copyright © 2020 LittleStars. All rights reserved.
 //
 
+import Combine
 import SwiftUI
 
 class ChatViewModel: ObservableObject {
     // MARK: - Public variables
+
+    let objectWillChange = PassthroughSubject<Void, Never>()
 
     let chat: Chat
 
@@ -28,8 +31,8 @@ class ChatViewModel: ObservableObject {
     }
 
     func loadMessages() {
-        messages = repository.fetchMessages(forChat: chat.id)
         objectWillChange.send()
+        messages = repository.fetchMessages(forChat: chat.id)
     }
 
     func add(message: String) {

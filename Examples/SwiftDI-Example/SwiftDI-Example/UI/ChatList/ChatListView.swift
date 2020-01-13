@@ -10,20 +10,25 @@ import SwiftDI
 import SwiftUI
 
 struct ChatListView: View {
-    let screenFactory: ScreenFactory
+    let injector: Injector
     @ObservedObject
     var viewModel: ChatListViewModel
+
+    init(injector: Injector) {
+        self.injector = injector
+        viewModel = ChatListViewModel(repository: injector.resolve())
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 List(viewModel.chats) { chat in
-                    NavigationLink(destination: self.screenFactory.chat(for: chat)) {
+                    NavigationLink(destination: ChatView(injector: self.injector, chat: chat)) {
                         Text(chat.name)
                     }
                 }
             }
-            .navigationBarTitle("Chats")
+            .navigationBarTitle(Text("Chats"), displayMode: .inline)
             .onAppear {
                 self.viewModel.loadChats()
             }
@@ -42,8 +47,10 @@ struct ChatListView_Previews: PreviewProvider {
 
     static var previews: some View {
         let repository = RepositoryStub()
-        let viewModel = ChatListViewModel(repository: repository)
-        let screenFactory = ScreenFactory(injector: Injector())
-        return ChatListView(screenFactory: screenFactory, viewModel: viewModel)
+        let injector = Injector()
+        injector.bind(ChatListRepositoryProtocol.self)
+            .with(repository)
+
+        return ChatListView(injector: injector)
     }
 }

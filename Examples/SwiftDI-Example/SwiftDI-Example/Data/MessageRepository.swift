@@ -31,8 +31,9 @@ class MessageRepository: MessageRepositoryProtocol {
 
     func add(message: String, toChat chat: ChatId) {
         var messages = chats[chat] ?? []
+        let newMessageId = (messages.last?.id ?? 0) + 1
         let newMessage = Message(
-            id: messages.last?.id ?? 0,
+            id: newMessageId,
             own: true,
             text: message,
             author: "Me"

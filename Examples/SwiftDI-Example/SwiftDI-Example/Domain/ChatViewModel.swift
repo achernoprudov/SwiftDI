@@ -31,8 +31,10 @@ class ChatViewModel: ObservableObject {
     }
 
     func loadMessages() {
-        objectWillChange.send()
-        messages = repository.fetchMessages(forChat: chat.id)
+        DispatchQueue.main.async {
+            self.objectWillChange.send()
+            self.messages = self.repository.fetchMessages(forChat: self.chat.id)
+        }
     }
 
     func add(message: String) {

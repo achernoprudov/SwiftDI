@@ -13,10 +13,11 @@
 /// - nsLock: uses `DefaultThreadLock` for syncronization. Based on `NSLock`
 /// - spinLock: uses `SpinThreadLock` for syncronization. Based on `OS_SPINLOCK_INIT`
 /// - unfairLock: uses `UnfairThreadLock` for syncronization. Based on `os_unfair_lock_s`
+/// - readWriteLock: uses `ReadWriteLock` for syncronization. Based on `pthread_rwlock_t`
 public enum DependencyStorageType {
-    case simple, concurrent, serialQueue, nsLock, spinLock
+    case simple, concurrent, serialQueue, nsLock, spinLock, readWriteLock
 
-    @available(OSX 10.12, iOS 10.0, *)
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     case unfairLock
 }
 
@@ -25,7 +26,7 @@ extension DependencyStorageType: CaseIterable {
 
     public static var allCases: AllCases {
         let common: AllCases = [.simple, .concurrent, .serialQueue, .nsLock, .spinLock]
-        if #available(OSX 10.12, iOS 10.0, *) {
+        if #available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *) {
             return common + [.unfairLock]
         }
         return common

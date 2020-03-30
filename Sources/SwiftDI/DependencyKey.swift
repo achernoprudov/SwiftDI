@@ -6,20 +6,25 @@
 //  Copyright © 2018 Little Stars. All rights reserved.
 //
 
-struct DependencyKey: Hashable, Equatable {
+public struct DependencyKey: Hashable, Equatable {
     // MARK: - Instance variables
 
-    let type: Any.Type
-    let tag: String
+    public let type: Any.Type
+    public let tag: String
+
+    public init(type: Any.Type, tag: String) {
+        self.type = type
+        self.tag = tag
+    }
 
     // MARK: - Public
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(ObjectIdentifier(type))
         hasher.combine(tag)
     }
 
-    static func ==(lhs: DependencyKey, rhs: DependencyKey) -> Bool {
+    public static func ==(lhs: DependencyKey, rhs: DependencyKey) -> Bool {
         return lhs.type == rhs.type
             && lhs.tag == rhs.tag
     }

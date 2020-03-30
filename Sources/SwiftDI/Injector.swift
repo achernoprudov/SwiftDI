@@ -6,7 +6,7 @@
 //  Copyright © 2018 Little Stars. All rights reserved.
 //
 
-open class Injector {
+public class Injector {
     // MARK: - Instance variables
 
     let config: Config
@@ -37,7 +37,7 @@ open class Injector {
     ///
     /// - Parameter type: type of binding dependency. Could be an protocol
     /// - Returns: builder that help bind another parameters in fluent way
-    open func bind<T>(_ type: T.Type) -> BindingBuilder<T> {
+    public func bind<T>(_ type: T.Type) -> BindingBuilder<T> {
         return BindingBuilder(injector: self, type: type)
     }
 
@@ -49,7 +49,7 @@ open class Injector {
     ///   - type: dependency type
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
-    open func resolve<T>(_ type: T.Type = T.self, tag: String = "") -> T {
+    public func resolve<T>(_ type: T.Type = T.self, tag: String = "") -> T {
         let key = DependencyKey(type: type, tag: tag)
         if let provider = storage.fetchProvider(by: key) {
             let dependency = provider.provide(by: self)
@@ -72,7 +72,7 @@ open class Injector {
     /// - Parameters:
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
-    open func resolve<T>(_ tag: String = "") -> T? {
+    public func resolve<T>(_ tag: String = "") -> T? {
         return resolve(T.self, tag: tag)
     }
 
@@ -83,7 +83,7 @@ open class Injector {
     ///   - type: dependency type
     ///   - tag: dependency tag
     /// - Returns: resolved dependency
-    open func resolveSafe<T>(_ type: T.Type, tag: String = "") -> T? {
+    public func resolveSafe<T>(_ type: T.Type, tag: String = "") -> T? {
         let key = DependencyKey(type: type, tag: tag)
         if let provider = storage.fetchProvider(by: key) {
             return provider.provide(by: self) as? T
@@ -94,7 +94,7 @@ open class Injector {
     /// Open child injector
     ///
     /// - Returns: child injector
-    open func plus() -> Injector {
+    public func plus() -> Injector {
         return Injector(parent: self)
     }
 

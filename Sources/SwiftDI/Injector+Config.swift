@@ -9,10 +9,17 @@
 extension Injector {
     /// Config of default options for Injector dependencies
     public struct Config {
+        private static var defaultStorageType: DependencyStorageType {
+            if #available(OSX 10.12, iOS 10.0, *) {
+                return .unfairLock
+            }
+            return .nsLock
+        }
+
         public static let `default`: Config = Config(
             tag: "",
             scope: .weak,
-            storage: .concurrent
+            storage: defaultStorageType
         )
 
         /// Default dependency tag

@@ -12,7 +12,7 @@ protocol ThreadLock {
     func unlock()
 }
 
-@available(OSX 10.12, *)
+@available(OSX 10.12, iOS 10.0, *)
 class UnfairThreadLock: ThreadLock {
     private var unfairLock = os_unfair_lock_s()
 

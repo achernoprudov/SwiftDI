@@ -28,7 +28,7 @@ class DependencyStorageFactory {
             let threadLock = SpinThreadLock()
             return ThreadLockDependencyStorage(lock: threadLock)
         case .unfairLock:
-            if #available(OSX 10.12, *) {
+            if #available(OSX 10.12, iOS 10.0, *) {
                 let threadLock = UnfairThreadLock()
                 return ThreadLockDependencyStorage(lock: threadLock)
             } else {

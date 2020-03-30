@@ -10,7 +10,7 @@ import XCTest
 
 @testable import SwiftDI
 
-@available(OSX 10.15, *)
+@available(OSX 10.15, iOS 13.0, *)
 class InjectorPerformanceTest: XCTestCase {
     var injector: Injector!
 
@@ -22,11 +22,44 @@ class InjectorPerformanceTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        injector = Injector()
+        let config = Injector.Config(
+            tag: "",
+            scope: DependencyScope.prototype,
+            storage: .unfairLock
+        )
+        injector = Injector(config: config)
     }
 
-    func test_singleInject() {
-        injector.bind(String.self).with("foo")
+    func test_weakScope_resolve() {
+        DispatchQueue.global(qos: .utility).sync {
+            injector.bind(String.self)
+                .scope(.weak)
+                .with("foo")
+        }
+
+        measure(options: measureOptions) {
+            _ = injector.resolve(String.self)
+        }
+    }
+
+    func test_singletonScope_resolve() {
+        DispatchQueue.global(qos: .utility).sync {
+            injector.bind(String.self)
+                .scope(.singleton)
+                .with("foo")
+        }
+
+        measure(options: measureOptions) {
+            _ = injector.resolve(String.self)
+        }
+    }
+
+    func test_prototypeScope_resolve() {
+        DispatchQueue.global(qos: .utility).sync {
+            injector.bind(String.self)
+                .scope(.prototype)
+                .with("foo")
+        }
 
         measure(options: measureOptions) {
             _ = injector.resolve(String.self)
@@ -34,11 +67,13 @@ class InjectorPerformanceTest: XCTestCase {
     }
 
     func test_constantInOneInjector() {
-        let values = (0..<100).map { "value#\($0)" }
-        values.forEach { value in
-            injector.bind(String.self)
-                .tag(value)
-                .with { value }
+        DispatchQueue.global(qos: .utility).sync {
+            let values = (0..<100).map { "value#\($0)" }
+            values.forEach { value in
+                injector.bind(String.self)
+                    .tag(value)
+                    .with { value }
+            }
         }
 
         injector.bind(String.self).with("foo")
@@ -48,10 +83,14 @@ class InjectorPerformanceTest: XCTestCase {
     }
 
     func test_hierarchy() {
-        injector.bind(String.self).with("foo")
+        var last: Injector?
 
-        let last = (0..<100).reduce(injector) { (inj, _) -> Injector in
-            inj!.plus()
+        DispatchQueue.global(qos: .utility).sync {
+            injector.bind(String.self).with("foo")
+
+            last = (0..<100).reduce(injector) { (inj, _) -> Injector in
+                inj!.plus()
+            }
         }
 
         measure(options: measureOptions) {

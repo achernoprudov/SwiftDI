@@ -10,8 +10,15 @@ import XCTest
 
 @testable import SwiftDI
 
+@available(OSX 10.15, *)
 class InjectorPerformanceTest: XCTestCase {
     var injector: Injector!
+
+    lazy var measureOptions: XCTMeasureOptions = {
+        let options = XCTMeasureOptions.default
+        options.iterationCount = 100
+        return options
+    }()
 
     override func setUp() {
         super.setUp()
@@ -22,7 +29,8 @@ class InjectorPerformanceTest: XCTestCase {
         let expected = "hello world"
         injector.bind(String.self)
             .with { expected }
-        measure {
+
+        measure(options: measureOptions) {
             _ = injector.resolve(String.self)
         }
     }
@@ -38,7 +46,7 @@ class InjectorPerformanceTest: XCTestCase {
         let expected = "hello world"
         injector.bind(String.self)
             .with { expected }
-        measure {
+        measure(options: measureOptions) {
             _ = injector.resolve(String.self)
         }
     }
@@ -52,7 +60,7 @@ class InjectorPerformanceTest: XCTestCase {
             inj!.plus()
         }
 
-        measure {
+        measure(options: measureOptions) {
             _ = last!.resolve(String.self)
         }
     }

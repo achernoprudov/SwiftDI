@@ -119,6 +119,14 @@ public class Injector {
         return Injector(parent: self)
     }
 
+    public func keys() -> Set<DependencyKey> {
+        var keys: Set<DependencyKey> = parent?.keys() ?? Set()
+        for key in storage.keys() {
+            keys.insert(key)
+        }
+        return keys
+    }
+
     // MARK: - Project
 
     func bind<R>(builder: BindingBuilder<R>, with binding: @escaping (Injector) -> R) {

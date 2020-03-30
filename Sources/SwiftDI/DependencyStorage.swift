@@ -19,6 +19,8 @@ protocol DependencyStorageProtocol {
     func fetchProvider(by key: DependencyKey) -> DependencyProvider?
 
     func save(_ provider: DependencyProvider, for key: DependencyKey)
+
+    func keys() -> Set<DependencyKey>
 }
 
 class SimpleDependencyStorage: DependencyStorageProtocol {
@@ -34,6 +36,10 @@ class SimpleDependencyStorage: DependencyStorageProtocol {
 
     func save(_ provider: DependencyProvider, for key: DependencyKey) {
         dependencies[key] = provider
+    }
+
+    func keys() -> Set<DependencyKey> {
+        return Set(dependencies.keys)
     }
 }
 
@@ -55,5 +61,9 @@ class ConcurrentDependencyStorage: DependencyStorageProtocol {
         queue.sync(flags: .barrier) {
             dependencies[key] = provider
         }
+    }
+
+    func keys() -> Set<DependencyKey> {
+        return Set(dependencies.keys)
     }
 }

@@ -14,7 +14,7 @@ public class Injector {
     private let parent: Injector?
     private let storage: DependencyStorageProtocol
 
-    // MARK: - Open
+    // MARK: - Public
 
     /// Constructor for Injector
     ///
@@ -51,18 +51,29 @@ public class Injector {
     /// - Returns: resolved dependency
     public func resolve<T>(_ type: T.Type = T.self, tag: String = "") -> T {
         let key = DependencyKey(type: type, tag: tag)
+        return resolve(by: key)
+    }
+
+    /// Resolve dependency in Injector.
+    /// Could be fall with error if Injector(or all parents) have not dependency.
+    /// For safe resolving use `resolveSafe`
+    ///
+    /// - Parameters:
+    ///   - key: key for resolving dependency
+    /// - Returns: resolved dependency
+    public func resolve<T>(by key: DependencyKey) -> T {
         if let provider = storage.fetchProvider(by: key) {
             let dependency = provider.provide(by: self)
             guard let result = dependency as? T else {
                 let subjectType = Mirror(reflecting: dependency).subjectType
-                preconditionFailure("Provided object has wrong type. Expected '\(type)' but was \(subjectType)")
+                preconditionFailure("Provided object has wrong type. Expected '\(key.type)' but was \(subjectType)")
             }
             return result
         }
         guard let p = parent else {
-            preconditionFailure("Cant find any parent Injector that could provide '\(type)' with tag='\(tag)'")
+            preconditionFailure("Cant find any parent Injector that could provide '\(key.type)' with tag='\(key.tag)'")
         }
-        return p.resolve(type, tag: tag)
+        return p.resolve(by: key)
     }
 
     /// Resolve implicit optional dependency in Injector.
@@ -85,10 +96,20 @@ public class Injector {
     /// - Returns: resolved dependency
     public func resolveSafe<T>(_ type: T.Type, tag: String = "") -> T? {
         let key = DependencyKey(type: type, tag: tag)
+        return resolveSafe(by: key)
+    }
+
+    /// Resolve dependency in Injector in safe way.
+    /// Could not fall with error but could be nil.
+    ///
+    /// - Parameters:
+    ///   - key: key for resolving dependency
+    /// - Returns: resolved dependency
+    public func resolveSafe<T>(by key: DependencyKey) -> T? {
         if let provider = storage.fetchProvider(by: key) {
             return provider.provide(by: self) as? T
         }
-        return parent?.resolveSafe(type, tag: tag)
+        return parent?.resolveSafe(by: key)
     }
 
     /// Open child injector
@@ -98,7 +119,7 @@ public class Injector {
         return Injector(parent: self)
     }
 
-    // MARK: - Public
+    // MARK: - Project
 
     func bind<R>(builder: BindingBuilder<R>, with binding: @escaping (Injector) -> R) {
         let key = DependencyKey(type: builder.type, tag: builder.tag)

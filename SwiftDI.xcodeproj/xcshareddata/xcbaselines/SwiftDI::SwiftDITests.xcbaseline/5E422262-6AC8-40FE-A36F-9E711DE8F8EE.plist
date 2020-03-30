@@ -30,6 +30,16 @@
 					<real>30</real>
 				</dict>
 			</dict>
+			<key>test_resolve1000dependencies()</key>
+			<dict>
+				<key>com.apple.dt.XCTMetric_Clock.time.monotonic</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.0016264</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>Local Baseline</string>
+				</dict>
+			</dict>
 			<key>test_singleInject()</key>
 			<dict>
 				<key>com.apple.dt.XCTMetric_Clock.time.monotonic</key>

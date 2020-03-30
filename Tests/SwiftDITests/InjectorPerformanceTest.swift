@@ -82,7 +82,7 @@ class InjectorPerformanceTest: XCTestCase {
         }
     }
 
-    func test_hierarchy() {
+    func test_resolveThroughHierarchy() {
         var last: Injector?
 
         DispatchQueue.global(qos: .utility).sync {
@@ -95,6 +95,36 @@ class InjectorPerformanceTest: XCTestCase {
 
         measure(options: measureOptions) {
             _ = last!.resolve(String.self)
+        }
+    }
+
+    func test_bind1000dependencies() {
+        let values = (0..<1000).map { "value#\($0)" }
+
+        injector.bind(String.self).with("foo")
+        measure(options: measureOptions) {
+            values.forEach { value in
+                injector.bind(String.self)
+                    .tag(value)
+                    .with(value)
+            }
+        }
+    }
+
+    func test_resolve1000dependencies() {
+        let values = (0..<1000).map { "value#\($0)" }
+        DispatchQueue.global(qos: .utility).sync {
+            values.forEach { value in
+                injector.bind(String.self)
+                    .tag(value)
+                    .with(value)
+            }
+        }
+
+        measure(options: measureOptions) {
+            values.forEach { value in
+                _ = injector.resolve(String.self, tag: value)
+            }
         }
     }
 }

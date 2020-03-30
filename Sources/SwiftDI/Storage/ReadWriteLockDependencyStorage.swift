@@ -21,10 +21,9 @@ class ReadWriteLockDependencyStorage: DependencyStorageProtocol {
 
     func fetchProvider(by key: DependencyKey) -> DependencyProvider? {
         lock.readLock()
-        defer {
-            lock.unlock()
-        }
-        return dependencies[key]
+        let provider = dependencies[key]
+        lock.unlock()
+        return provider
     }
 
     func save(_ provider: DependencyProvider, for key: DependencyKey) {
@@ -35,9 +34,8 @@ class ReadWriteLockDependencyStorage: DependencyStorageProtocol {
 
     func keys() -> Set<DependencyKey> {
         lock.readLock()
-        defer {
-            lock.unlock()
-        }
-        return Set(dependencies.keys)
+        let keys = Set(dependencies.keys)
+        lock.unlock()
+        return keys
     }
 }

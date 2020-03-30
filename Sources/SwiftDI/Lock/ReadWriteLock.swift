@@ -12,7 +12,13 @@ class ReadWriteLock {
     private var attr = pthread_rwlockattr_t()
 
     init() {
+        pthread_rwlockattr_init(&attr)
         pthread_rwlock_init(&lock, &attr)
+    }
+
+    deinit {
+        pthread_rwlock_destroy(&lock)
+        pthread_rwlockattr_destroy(&attr)
     }
 
     func readLock() {

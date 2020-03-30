@@ -30,6 +30,7 @@
 		55FA37152431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37142431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift */; };
 		55FA37172431CA150091CF06 /* ThreadLockDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */; };
 		55FA37192431CB3B0091CF06 /* DependencyStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */; };
+		55FA371E2431D6290091CF06 /* DependencyStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA371D2431D6290091CF06 /* DependencyStorageTest.swift */; };
 		55FEE0C62431B692008818A0 /* InjectorKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */; };
 		OBJ_141 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* AdapterProtocols.swift */; };
 		OBJ_142 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* AssertionDispatcher.swift */; };
@@ -188,6 +189,7 @@
 		55FA37142431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentQueueDependencyStorage.swift; sourceTree = "<group>"; };
 		55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadLockDependencyStorage.swift; sourceTree = "<group>"; };
 		55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageFactory.swift; sourceTree = "<group>"; };
+		55FA371D2431D6290091CF06 /* DependencyStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageTest.swift; sourceTree = "<group>"; };
 		55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKeysTest.swift; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -365,6 +367,14 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		55FA371C2431D6080091CF06 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				55FA371D2431D6290091CF06 /* DependencyStorageTest.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* BindingBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_23 /* Info.plist */,
+				55FA371C2431D6080091CF06 /* Storage */,
 				OBJ_24 /* ConstructorInjectionTest.swift */,
 				OBJ_25 /* InjectorInheritanceTest.swift */,
 				OBJ_26 /* InjectorLeakingTest.swift */,
@@ -998,6 +1009,7 @@
 				OBJ_279 /* InjectorPerformanceTest.swift in Sources */,
 				OBJ_280 /* InjectorTest.swift in Sources */,
 				OBJ_281 /* LeakTest+Nimble.swift in Sources */,
+				55FA371E2431D6290091CF06 /* DependencyStorageTest.swift in Sources */,
 				OBJ_282 /* LeakTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

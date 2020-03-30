@@ -37,7 +37,7 @@ class InjectorConcurrencyTest: QuickSpec {
             let counter = Counter()
             let group = DispatchGroup()
 
-            injector.bind(Counter.self).with { counter }
+            injector.bind(Counter.self).with(counter)
             injector.bind(Foo.self)
                 .scope(.singleton)
                 .with(Foo.init)
@@ -74,7 +74,7 @@ class InjectorConcurrencyTest: QuickSpec {
 
                     injector.bind(String.self)
                         .tag(value)
-                        .with { value }
+                        .with(value)
 
                     DispatchQueue.global().async {
                         let resolved = injector.resolveSafe(String.self, tag: value)
@@ -100,8 +100,7 @@ class InjectorConcurrencyTest: QuickSpec {
             group.enter()
 
             DispatchQueue.global().async {
-                injector.bind(String.self)
-                    .with { "value" }
+                injector.bind(String.self).with("value")
 
                 DispatchQueue.global().async {
                     injector.bind(Foo.self)

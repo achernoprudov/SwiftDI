@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		556EED3922BCF40E004195B8 /* InjectorConcurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */; };
 		556EED3B22BD05EA004195B8 /* DependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3A22BD05EA004195B8 /* DependencyStorage.swift */; };
+		55FEE0C62431B692008818A0 /* InjectorKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */; };
 		OBJ_141 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* AdapterProtocols.swift */; };
 		OBJ_142 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* AssertionDispatcher.swift */; };
 		OBJ_143 /* AssertionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* AssertionRecorder.swift */; };
@@ -173,6 +174,7 @@
 /* Begin PBXFileReference section */
 		556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorConcurrencyTest.swift; sourceTree = "<group>"; };
 		556EED3A22BD05EA004195B8 /* DependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorage.swift; sourceTree = "<group>"; };
+		55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKeysTest.swift; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_100 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				OBJ_26 /* InjectorLeakingTest.swift */,
 				556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */,
 				OBJ_27 /* InjectorPerformanceTest.swift */,
+				55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */,
 				OBJ_28 /* InjectorTest.swift */,
 				OBJ_29 /* Utils */,
 			);
@@ -476,7 +479,7 @@
 			path = Hooks;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -490,7 +493,6 @@
 				OBJ_134 /* SwiftDI.podspec */,
 				OBJ_135 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_61 /* QuickSpecBase */ = {
@@ -784,7 +786,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_125 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -944,6 +946,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				55FEE0C62431B692008818A0 /* InjectorKeysTest.swift in Sources */,
 				OBJ_276 /* ConstructorInjectionTest.swift in Sources */,
 				556EED3922BCF40E004195B8 /* InjectorConcurrencyTest.swift in Sources */,
 				OBJ_277 /* InjectorInheritanceTest.swift in Sources */,

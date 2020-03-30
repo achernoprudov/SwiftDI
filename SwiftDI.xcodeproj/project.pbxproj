@@ -22,7 +22,14 @@
 
 /* Begin PBXBuildFile section */
 		556EED3922BCF40E004195B8 /* InjectorConcurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */; };
-		556EED3B22BD05EA004195B8 /* DependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3A22BD05EA004195B8 /* DependencyStorage.swift */; };
+		556EED3B22BD05EA004195B8 /* SimpleDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3A22BD05EA004195B8 /* SimpleDependencyStorage.swift */; };
+		55FA370C2431C7DF0091CF06 /* ThreadLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA370A2431C6F20091CF06 /* ThreadLock.swift */; };
+		55FA370F2431C98D0091CF06 /* DependencyStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA370E2431C98D0091CF06 /* DependencyStorageProtocol.swift */; };
+		55FA37112431C9B80091CF06 /* DependencyStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37102431C9B80091CF06 /* DependencyStorageType.swift */; };
+		55FA37132431C9E50091CF06 /* SerialQueueDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37122431C9E50091CF06 /* SerialQueueDependencyStorage.swift */; };
+		55FA37152431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37142431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift */; };
+		55FA37172431CA150091CF06 /* ThreadLockDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */; };
+		55FA37192431CB3B0091CF06 /* DependencyStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */; };
 		55FEE0C62431B692008818A0 /* InjectorKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */; };
 		OBJ_141 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* AdapterProtocols.swift */; };
 		OBJ_142 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* AssertionDispatcher.swift */; };
@@ -173,7 +180,14 @@
 
 /* Begin PBXFileReference section */
 		556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorConcurrencyTest.swift; sourceTree = "<group>"; };
-		556EED3A22BD05EA004195B8 /* DependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorage.swift; sourceTree = "<group>"; };
+		556EED3A22BD05EA004195B8 /* SimpleDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDependencyStorage.swift; sourceTree = "<group>"; };
+		55FA370A2431C6F20091CF06 /* ThreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadLock.swift; sourceTree = "<group>"; };
+		55FA370E2431C98D0091CF06 /* DependencyStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageProtocol.swift; sourceTree = "<group>"; };
+		55FA37102431C9B80091CF06 /* DependencyStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageType.swift; sourceTree = "<group>"; };
+		55FA37122431C9E50091CF06 /* SerialQueueDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialQueueDependencyStorage.swift; sourceTree = "<group>"; };
+		55FA37142431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentQueueDependencyStorage.swift; sourceTree = "<group>"; };
+		55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadLockDependencyStorage.swift; sourceTree = "<group>"; };
+		55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageFactory.swift; sourceTree = "<group>"; };
 		55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKeysTest.swift; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -329,6 +343,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55FA37092431C6DD0091CF06 /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				55FA370A2431C6F20091CF06 /* ThreadLock.swift */,
+			);
+			path = Lock;
+			sourceTree = "<group>";
+		};
+		55FA370D2431C97D0091CF06 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */,
+				55FA370E2431C98D0091CF06 /* DependencyStorageProtocol.swift */,
+				55FA37102431C9B80091CF06 /* DependencyStorageType.swift */,
+				556EED3A22BD05EA004195B8 /* SimpleDependencyStorage.swift */,
+				55FA37122431C9E50091CF06 /* SerialQueueDependencyStorage.swift */,
+				55FA37142431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift */,
+				55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* BindingBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,9 +613,10 @@
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* BindingBuilder */,
 				OBJ_18 /* Provider */,
+				55FA37092431C6DD0091CF06 /* Lock */,
+				55FA370D2431C97D0091CF06 /* Storage */,
 				OBJ_14 /* DependencyKey.swift */,
 				OBJ_15 /* DependencyScope.swift */,
-				556EED3A22BD05EA004195B8 /* DependencyStorage.swift */,
 				OBJ_16 /* Injector+Config.swift */,
 				OBJ_17 /* Injector.swift */,
 			);
@@ -923,13 +960,20 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_251 /* BindingBuilder+Parametrized.swift in Sources */,
+				55FA37152431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift in Sources */,
 				OBJ_252 /* BindingBuilder.swift in Sources */,
+				55FA370C2431C7DF0091CF06 /* ThreadLock.swift in Sources */,
 				OBJ_253 /* DependencyKey.swift in Sources */,
+				55FA37192431CB3B0091CF06 /* DependencyStorageFactory.swift in Sources */,
+				55FA37112431C9B80091CF06 /* DependencyStorageType.swift in Sources */,
+				55FA370F2431C98D0091CF06 /* DependencyStorageProtocol.swift in Sources */,
 				OBJ_254 /* DependencyScope.swift in Sources */,
 				OBJ_255 /* Injector+Config.swift in Sources */,
+				55FA37172431CA150091CF06 /* ThreadLockDependencyStorage.swift in Sources */,
 				OBJ_256 /* Injector.swift in Sources */,
 				OBJ_257 /* DependencyProvider.swift in Sources */,
-				556EED3B22BD05EA004195B8 /* DependencyStorage.swift in Sources */,
+				556EED3B22BD05EA004195B8 /* SimpleDependencyStorage.swift in Sources */,
+				55FA37132431C9E50091CF06 /* SerialQueueDependencyStorage.swift in Sources */,
 				OBJ_258 /* ProviderCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

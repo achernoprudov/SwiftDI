@@ -24,13 +24,8 @@ public class Injector {
     public init(parent: Injector? = nil, config: Config = .default) {
         self.parent = parent
         self.config = config
-
-        switch config.storage {
-        case .concurrent:
-            storage = ConcurrentDependencyStorage()
-        case .simple:
-            storage = SimpleDependencyStorage()
-        }
+        storage = DependencyStorageFactory.default
+            .build(by: config.storage)
     }
 
     /// Start binding process

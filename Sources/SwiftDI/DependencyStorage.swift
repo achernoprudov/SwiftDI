@@ -46,24 +46,31 @@ class SimpleDependencyStorage: DependencyStorageProtocol {
 class ConcurrentDependencyStorage: DependencyStorageProtocol {
     // MARK: - Instance variables
 
-    private let queue = DispatchQueue(label: "com.littlestars.SwiftDI.storage.concurrent", attributes: .concurrent)
+//    private let queue = DispatchQueue(label: "com.littlestars.SwiftDI.storage.concurrent")
     private var dependencies: [DependencyKey: DependencyProvider] = [:]
+    let lock = NSLock()
 
     // MARK: - Public
 
     func fetchProvider(by key: DependencyKey) -> DependencyProvider? {
-        return queue.sync {
-            dependencies[key]
+        lock.lock()
+        defer {
+            lock.unlock()
         }
+        return dependencies[key]
     }
 
     func save(_ provider: DependencyProvider, for key: DependencyKey) {
-        queue.sync(flags: .barrier) {
-            dependencies[key] = provider
-        }
+        lock.lock()
+        dependencies[key] = provider
+        lock.unlock()
     }
 
     func keys() -> Set<DependencyKey> {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         return Set(dependencies.keys)
     }
 }

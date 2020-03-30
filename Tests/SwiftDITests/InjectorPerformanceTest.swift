@@ -25,7 +25,7 @@ class InjectorPerformanceTest: XCTestCase {
         let config = Injector.Config(
             tag: "",
             scope: DependencyScope.prototype,
-            storage: .unfairLock
+            storage: .readWriteLock
         )
         injector = Injector(config: config)
     }

@@ -28,12 +28,15 @@ class DependencyStorageFactory {
             let threadLock = SpinThreadLock()
             return ThreadLockDependencyStorage(lock: threadLock)
         case .unfairLock:
-            if #available(OSX 10.12, iOS 10.0, *) {
+            if #available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *) {
                 let threadLock = UnfairThreadLock()
                 return ThreadLockDependencyStorage(lock: threadLock)
             } else {
                 preconditionFailure("Unfair lock is unavailable")
             }
+        case .readWriteLock:
+            let lock = ReadWriteLock()
+            return ReadWriteLockDependencyStorage(lock: lock)
         }
     }
 }

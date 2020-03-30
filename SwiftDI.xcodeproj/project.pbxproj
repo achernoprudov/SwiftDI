@@ -31,6 +31,11 @@
 		55FA37172431CA150091CF06 /* ThreadLockDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */; };
 		55FA37192431CB3B0091CF06 /* DependencyStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */; };
 		55FA371E2431D6290091CF06 /* DependencyStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA371D2431D6290091CF06 /* DependencyStorageTest.swift */; };
+		55FA37202431EC910091CF06 /* ReadWriteLockDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA371F2431EC910091CF06 /* ReadWriteLockDependencyStorage.swift */; };
+		55FA37222431ED9F0091CF06 /* UnfairThreadLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37212431ED9F0091CF06 /* UnfairThreadLock.swift */; };
+		55FA37242431EDC40091CF06 /* NSThreadLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37232431EDC40091CF06 /* NSThreadLock.swift */; };
+		55FA37262431EDD50091CF06 /* SpinThreadLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37252431EDD50091CF06 /* SpinThreadLock.swift */; };
+		55FA37282431EDF00091CF06 /* ReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA37272431EDF00091CF06 /* ReadWriteLock.swift */; };
 		55FEE0C62431B692008818A0 /* InjectorKeysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */; };
 		OBJ_141 /* AdapterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* AdapterProtocols.swift */; };
 		OBJ_142 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* AssertionDispatcher.swift */; };
@@ -190,6 +195,11 @@
 		55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadLockDependencyStorage.swift; sourceTree = "<group>"; };
 		55FA37182431CB3B0091CF06 /* DependencyStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageFactory.swift; sourceTree = "<group>"; };
 		55FA371D2431D6290091CF06 /* DependencyStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyStorageTest.swift; sourceTree = "<group>"; };
+		55FA371F2431EC910091CF06 /* ReadWriteLockDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteLockDependencyStorage.swift; sourceTree = "<group>"; };
+		55FA37212431ED9F0091CF06 /* UnfairThreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfairThreadLock.swift; sourceTree = "<group>"; };
+		55FA37232431EDC40091CF06 /* NSThreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSThreadLock.swift; sourceTree = "<group>"; };
+		55FA37252431EDD50091CF06 /* SpinThreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinThreadLock.swift; sourceTree = "<group>"; };
+		55FA37272431EDF00091CF06 /* ReadWriteLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteLock.swift; sourceTree = "<group>"; };
 		55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorKeysTest.swift; sourceTree = "<group>"; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -349,6 +359,10 @@
 			isa = PBXGroup;
 			children = (
 				55FA370A2431C6F20091CF06 /* ThreadLock.swift */,
+				55FA37212431ED9F0091CF06 /* UnfairThreadLock.swift */,
+				55FA37232431EDC40091CF06 /* NSThreadLock.swift */,
+				55FA37252431EDD50091CF06 /* SpinThreadLock.swift */,
+				55FA37272431EDF00091CF06 /* ReadWriteLock.swift */,
 			);
 			path = Lock;
 			sourceTree = "<group>";
@@ -363,6 +377,7 @@
 				55FA37122431C9E50091CF06 /* SerialQueueDependencyStorage.swift */,
 				55FA37142431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift */,
 				55FA37162431CA150091CF06 /* ThreadLockDependencyStorage.swift */,
+				55FA371F2431EC910091CF06 /* ReadWriteLockDependencyStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -974,12 +989,17 @@
 				55FA37152431C9F50091CF06 /* ConcurrentQueueDependencyStorage.swift in Sources */,
 				OBJ_252 /* BindingBuilder.swift in Sources */,
 				55FA370C2431C7DF0091CF06 /* ThreadLock.swift in Sources */,
+				55FA37202431EC910091CF06 /* ReadWriteLockDependencyStorage.swift in Sources */,
 				OBJ_253 /* DependencyKey.swift in Sources */,
 				55FA37192431CB3B0091CF06 /* DependencyStorageFactory.swift in Sources */,
+				55FA37242431EDC40091CF06 /* NSThreadLock.swift in Sources */,
 				55FA37112431C9B80091CF06 /* DependencyStorageType.swift in Sources */,
+				55FA37282431EDF00091CF06 /* ReadWriteLock.swift in Sources */,
 				55FA370F2431C98D0091CF06 /* DependencyStorageProtocol.swift in Sources */,
+				55FA37262431EDD50091CF06 /* SpinThreadLock.swift in Sources */,
 				OBJ_254 /* DependencyScope.swift in Sources */,
 				OBJ_255 /* Injector+Config.swift in Sources */,
+				55FA37222431ED9F0091CF06 /* UnfairThreadLock.swift in Sources */,
 				55FA37172431CA150091CF06 /* ThreadLockDependencyStorage.swift in Sources */,
 				OBJ_256 /* Injector.swift in Sources */,
 				OBJ_257 /* DependencyProvider.swift in Sources */,

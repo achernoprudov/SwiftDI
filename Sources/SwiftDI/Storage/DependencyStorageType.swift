@@ -19,3 +19,15 @@ public enum DependencyStorageType {
     @available(OSX 10.12, *)
     case unfairLock
 }
+
+extension DependencyStorageType: CaseIterable {
+    public typealias AllCases = [DependencyStorageType]
+
+    public static var allCases: AllCases {
+        let common: AllCases = [.simple, .concurrent, .serialQueue, .nsLock, .spinLock]
+        if #available(OSX 10.12, *) {
+            return common + [.unfairLock]
+        }
+        return common
+    }
+}

@@ -11,6 +11,7 @@ import Quick
 
 @testable import SwiftDI
 
+@available(OSX 10.12, *)
 class InjectorConcurrencyTest: QuickSpec {
     class Counter {
         private let queue = DispatchQueue(label: "counter.", qos: .default, attributes: .concurrent)
@@ -31,7 +32,12 @@ class InjectorConcurrencyTest: QuickSpec {
         var injector: Injector!
 
         beforeEach {
-            injector = Injector()
+            let config = Injector.Config(
+                tag: "",
+                scope: DependencyScope.prototype,
+                storage: .readWriteLock
+            )
+            injector = Injector(config: config)
         }
         it("thread safety of the singleton dependency") {
             let counter = Counter()

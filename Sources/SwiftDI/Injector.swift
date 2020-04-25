@@ -7,6 +7,10 @@
 //
 
 public class Injector {
+    // MARK: - Static
+
+    public static var `default` = Injector()
+
     // MARK: - Instance variables
 
     let config: Config

@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		552197D2245480170003C013 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552197D1245480170003C013 /* Inject.swift */; };
+		552197D4245482130003C013 /* InjectViaWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552197D3245482130003C013 /* InjectViaWrapperTest.swift */; };
 		556EED3922BCF40E004195B8 /* InjectorConcurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */; };
 		556EED3B22BD05EA004195B8 /* SimpleDependencyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EED3A22BD05EA004195B8 /* SimpleDependencyStorage.swift */; };
 		55FA370C2431C7DF0091CF06 /* ThreadLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA370A2431C6F20091CF06 /* ThreadLock.swift */; };
@@ -185,6 +187,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		552197D1245480170003C013 /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
+		552197D3245482130003C013 /* InjectViaWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectViaWrapperTest.swift; sourceTree = "<group>"; };
 		556EED3722BCF407004195B8 /* InjectorConcurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorConcurrencyTest.swift; sourceTree = "<group>"; };
 		556EED3A22BD05EA004195B8 /* SimpleDependencyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDependencyStorage.swift; sourceTree = "<group>"; };
 		55FA370A2431C6F20091CF06 /* ThreadLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadLock.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 			children = (
 				OBJ_23 /* Info.plist */,
 				55FA371C2431D6080091CF06 /* Storage */,
+				OBJ_29 /* Utils */,
 				OBJ_24 /* ConstructorInjectionTest.swift */,
 				OBJ_25 /* InjectorInheritanceTest.swift */,
 				OBJ_26 /* InjectorLeakingTest.swift */,
@@ -452,7 +457,7 @@
 				OBJ_27 /* InjectorPerformanceTest.swift */,
 				55FEE0C52431B692008818A0 /* InjectorKeysTest.swift */,
 				OBJ_28 /* InjectorTest.swift */,
-				OBJ_29 /* Utils */,
+				552197D3245482130003C013 /* InjectViaWrapperTest.swift */,
 			);
 			name = SwiftDITests;
 			path = Tests/SwiftDITests;
@@ -645,6 +650,7 @@
 				OBJ_15 /* DependencyScope.swift */,
 				OBJ_16 /* Injector+Config.swift */,
 				OBJ_17 /* Injector.swift */,
+				552197D1245480170003C013 /* Inject.swift */,
 			);
 			name = SwiftDI;
 			path = Sources/SwiftDI;
@@ -991,6 +997,7 @@
 				55FA370C2431C7DF0091CF06 /* ThreadLock.swift in Sources */,
 				55FA37202431EC910091CF06 /* ReadWriteLockDependencyStorage.swift in Sources */,
 				OBJ_253 /* DependencyKey.swift in Sources */,
+				552197D2245480170003C013 /* Inject.swift in Sources */,
 				55FA37192431CB3B0091CF06 /* DependencyStorageFactory.swift in Sources */,
 				55FA37242431EDC40091CF06 /* NSThreadLock.swift in Sources */,
 				55FA37112431C9B80091CF06 /* DependencyStorageType.swift in Sources */,
@@ -1030,6 +1037,7 @@
 				OBJ_280 /* InjectorTest.swift in Sources */,
 				OBJ_281 /* LeakTest+Nimble.swift in Sources */,
 				55FA371E2431D6290091CF06 /* DependencyStorageTest.swift in Sources */,
+				552197D4245482130003C013 /* InjectViaWrapperTest.swift in Sources */,
 				OBJ_282 /* LeakTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

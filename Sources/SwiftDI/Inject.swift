@@ -5,20 +5,24 @@
 //  Created by Andrey Chernoprudov on 25.04.2020.
 //
 
-@propertyWrapper
-public struct Inject<Value> {
-    // MARK: - Instance variables
+#if swift(>=5.1)
 
-    let dependency: Value
+    @propertyWrapper
+    public struct Inject<Value> {
+        // MARK: - Instance variables
 
-    // MARK: - Public
+        let dependency: Value
 
-    public init(injector: Injector = .default, tag: String? = nil) {
-        let dependencyTag = tag ?? injector.config.tag
-        dependency = injector.resolve(Value.self, tag: dependencyTag)
+        // MARK: - Public
+
+        public init(injector: Injector = .default, tag: String? = nil) {
+            let dependencyTag = tag ?? injector.config.tag
+            dependency = injector.resolve(Value.self, tag: dependencyTag)
+        }
+
+        public var wrappedValue: Value {
+            return dependency
+        }
     }
 
-    public var wrappedValue: Value {
-        return dependency
-    }
-}
+#endif

@@ -10,94 +10,98 @@ import Quick
 
 @testable import SwiftDI
 
-class InjectViaWrapperTest: QuickSpec {
-    private static var customInjector: Injector!
+#if swift(>=5.1)
 
-    override func spec() {
-        beforeEach {
-            Injector.default = Injector()
-        }
+    class InjectViaWrapperTest: QuickSpec {
+        private static var customInjector: Injector!
 
-        afterEach {
-            Injector.default = Injector()
-            Self.customInjector = nil
-        }
-
-        it("inject with default injector and tag") {
-            struct TestStruct {
-                @Inject
-                var value: String
+        override func spec() {
+            beforeEach {
+                Injector.default = Injector()
             }
 
-            // prepare
-            let expectedValue = "foo"
-            Injector.default.bind(String.self).with(expectedValue)
-
-            // actions
-            let testStruct = TestStruct()
-
-            // assertions
-            expect(testStruct.value) == expectedValue
-        }
-
-        it("inject with default injector and custom tag tag") {
-            // prepare
-            let expectedValue = "foo"
-
-            struct TestStruct {
-                @Inject(tag: "bar")
-                var value: String
+            afterEach {
+                Injector.default = Injector()
+                Self.customInjector = nil
             }
 
-            Injector.default.bind(String.self)
-                .tag("bar")
-                .with(expectedValue)
+            it("inject with default injector and tag") {
+                struct TestStruct {
+                    @Inject
+                    var value: String
+                }
 
-            // actions
-            let testStruct = TestStruct()
+                // prepare
+                let expectedValue = "foo"
+                Injector.default.bind(String.self).with(expectedValue)
 
-            // assertions
-            expect(testStruct.value) == expectedValue
-        }
+                // actions
+                let testStruct = TestStruct()
 
-        it("inject with custom injector") {
-            // prepare
-            Self.customInjector = Injector()
-            let expectedValue = "foo"
-
-            Self.customInjector.bind(String.self)
-                .with(expectedValue)
-
-            struct TestStruct {
-                @Inject(injector: InjectViaWrapperTest.customInjector)
-                var value: String
+                // assertions
+                expect(testStruct.value) == expectedValue
             }
 
-            // actions
-            let testStruct = TestStruct()
+            it("inject with default injector and custom tag tag") {
+                // prepare
+                let expectedValue = "foo"
 
-            // assertions
-            expect(testStruct.value) == expectedValue
-        }
+                struct TestStruct {
+                    @Inject(tag: "bar")
+                    var value: String
+                }
 
-        it("inject with custom injector") {
-            // prepare
-            Self.customInjector = Injector()
-            let expectedValue = "foo"
+                Injector.default.bind(String.self)
+                    .tag("bar")
+                    .with(expectedValue)
 
-            Self.customInjector.bind(String.self)
-                .with(expectedValue)
+                // actions
+                let testStruct = TestStruct()
 
-            struct TestStruct {
-                @Inject(injector: InjectViaWrapperTest.customInjector)
-                var value: String
+                // assertions
+                expect(testStruct.value) == expectedValue
             }
 
-            // actions
-            let testStruct = TestStruct()
+            it("inject with custom injector") {
+                // prepare
+                Self.customInjector = Injector()
+                let expectedValue = "foo"
 
-            // assertions
-            expect(testStruct.value) == expectedValue
+                Self.customInjector.bind(String.self)
+                    .with(expectedValue)
+
+                struct TestStruct {
+                    @Inject(injector: InjectViaWrapperTest.customInjector)
+                    var value: String
+                }
+
+                // actions
+                let testStruct = TestStruct()
+
+                // assertions
+                expect(testStruct.value) == expectedValue
+            }
+
+            it("inject with custom injector") {
+                // prepare
+                Self.customInjector = Injector()
+                let expectedValue = "foo"
+
+                Self.customInjector.bind(String.self)
+                    .with(expectedValue)
+
+                struct TestStruct {
+                    @Inject(injector: InjectViaWrapperTest.customInjector)
+                    var value: String
+                }
+
+                // actions
+                let testStruct = TestStruct()
+
+                // assertions
+                expect(testStruct.value) == expectedValue
+            }
         }
     }
-}
+
+#endif

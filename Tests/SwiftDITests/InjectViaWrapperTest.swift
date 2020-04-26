@@ -10,7 +10,7 @@ import Quick
 
 @testable import SwiftDI
 
-#if swift(>=5.1)
+#if swift(>=4.1) && compiler(>=5.0)
 
     class InjectViaWrapperTest: QuickSpec {
         private static var customInjector: Injector!

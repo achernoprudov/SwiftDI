@@ -1,4 +1,5 @@
 # SwiftDI
+![Github Actions](https://github.com/achernoprudov/SwiftDI/workflows/Swift/badge.svg)
 [![Travis CI](https://travis-ci.org/achernoprudov/SwiftDI.svg?branch=master)](https://travis-ci.org/achernoprudov/SwiftDI)
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/SwiftDI.svg?style=flat)](http://cocoapods.org/pods/SwiftDI)
 [![License](https://img.shields.io/cocoapods/l/SwiftDI.svg?style=flat)](http://cocoapods.org/pods/SwiftDI)

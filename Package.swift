@@ -20,9 +20,13 @@ let package = Package(
             name: "SwiftDI",
             dependencies: []
         ),
+        .target(
+            name: "TestEnvironment",
+            dependencies: ["Quick", "Nimble"]
+        ),
         .testTarget(
             name: "SwiftDITests",
-            dependencies: ["SwiftDI", "Quick", "Nimble"]
+            dependencies: ["SwiftDI", "TestEnvironment"]
         ),
     ]
 )
